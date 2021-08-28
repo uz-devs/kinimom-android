@@ -17,6 +17,5 @@ class SignUp
                          social_photo: String,
                          age: String,
                          email: String,
-                         gender: String) = kinimomRepository.signUp(
-        SignUpRequest(social_login_type, social_id, social_name, social_phone, social_photo, age, email, gender))
+                         gender: String) = kinimomRepository.signUp(SignUpRequest(social_login_type, social_id, social_name, social_phone, social_photo, age, email, gender))
 }
