@@ -78,6 +78,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:id="@+id/llKakaoLogin"
         android:layout_height="56dp"
         android:orientation="horizontal"
         android:layout_marginBottom="16dp"

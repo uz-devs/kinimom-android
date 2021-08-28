@@ -1,21 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-        
     <!--Naver Login-->
     <string name="NAVER_OAUTH_CLIENT_ID">Fkzybp1LvgcT5znFDe1_</string>
     <string name="NAVER_OAUTH_CLIENT_SECRET">NaPWBDfKBq</string>
     <string name="NAVER_OAUTH_CLIENT_NAME">키니맘</string>
-    
-    
+
     <!--Facebook Login-->
     <string name="FB_APP_ID">482271186190703</string>
     <string name="FB_LOGIN_PROTOCOL_SCHEME">fb482271186190703</string>
 
-
     <!--Kakao Login-->
-    <string name="KAKAO_NATIVE_APP_KEY">8c7651fb3c7bf934c763038708a525a5</string>
-    <string name="KAKAO_REST_API_KEY">697e61770ac76293d8648d9be8399a5e</string>
-    <string name="KAKAO_JAVASCRIPT_API">905212f7c6d301e0d14b2139b9184a7f</string>
-    <string name="KAKAO_ADMIN_KEY">64020035ba3db85b2792e8d7ebecdef2</string>
-    
+    <string name="KAKAO_NATIVE_APP_KEY">578a7fc9e3a6984665d211513fcc16c0</string>
+    <string name="KAKAO_REST_API_KEY">1644ead74a027d10a7f4f4f2afdac65a</string>
+    <string name="KAKAO_JAVASCRIPT_API">c4303ab3b3dd212049afd01bf0428c79</string>
+    <string name="KAKAO_ADMIN_KEY">cdb0154392ddca444ea79ac4c49d6e4c</string>
 </resources>
