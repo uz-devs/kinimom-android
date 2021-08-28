@@ -32,6 +32,21 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+
+    signingConfigs {
+        debug {
+            storeFile file('codventure.jks')
+            storePassword 'codventure'
+            keyAlias = 'codventure'
+            keyPassword 'codventure'
+        }
+        release {
+            storeFile file('codventure.jks')
+            storePassword 'codventure'
+            keyAlias = 'codventure'
+            keyPassword 'codventure'
+        }
+    }
 }
 
 dependencies {
@@ -74,4 +89,9 @@ dependencies {
 
     // implementation 'ru.egslava:MaskedEditText:1.0.5'
     implementation 'com.github.reinaldoarrosi:maskededittext:1.1.0'
+    implementation "com.kakao.sdk:v2-user:2.6.0" // Kakao Login
+    implementation "com.kakao.sdk:v2-talk:2.6.0" // Kakao Talk Social, Message (Kakao Talk)
+    implementation "com.kakao.sdk:v2-story:2.6.0" // Kakao Story
+    implementation "com.kakao.sdk:v2-link:2.6.0" //  Message (Kakao Link)
+    implementation "com.kakao.sdk:v2-navi:2.6.0" // Kakao Navi
 }
