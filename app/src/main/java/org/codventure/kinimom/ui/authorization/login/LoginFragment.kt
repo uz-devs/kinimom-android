@@ -19,7 +19,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.di.ApplicationComponent
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
-import org.codventure.kinimom.ui.main.MainFragment
 
 class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {

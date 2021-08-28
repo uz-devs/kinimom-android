@@ -74,4 +74,7 @@ dependencies {
 
     // implementation 'ru.egslava:MaskedEditText:1.0.5'
     implementation 'com.github.reinaldoarrosi:maskededittext:1.1.0'
+
+    // radar view
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
 }
