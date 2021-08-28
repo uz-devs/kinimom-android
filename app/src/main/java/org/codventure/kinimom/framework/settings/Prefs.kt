@@ -1,0 +1,80 @@
+package org.codventure.kinimom.framework.settings
+
+import android.content.Context
+
+/**
+ * Created by abduaziz on 8/16/21 at 6:51 PM.
+ */
+
+object Prefs {
+    private val prefs = "APP_PREFS"
+
+    fun save(context: Context?, key: String, value: String) {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        var editor = prefs?.edit()
+        editor?.putString(key, value)
+        editor?.apply()
+    }
+
+    fun save(context: Context?, key: String, value: Float) {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        var editor = prefs?.edit()
+        editor?.putFloat(key, value)
+        editor?.apply()
+    }
+
+    fun save(context: Context?, key: String, value: Long) {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        var editor = prefs?.edit()
+        editor?.putLong(key, value)
+        editor?.apply()
+    }
+
+    fun save(context: Context?, key: String, value: Int) {
+        val prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        val editor = prefs?.edit()
+        editor?.putInt(key, value)
+        editor?.apply()
+    }
+
+    fun save(context: Context?, key: String, value: Boolean) {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        var editor = prefs?.edit()
+        editor?.putBoolean(key, value)
+        editor?.apply()
+    }
+
+    fun get(context: Context?, key: String, default: String): String {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        return prefs?.getString(key, default).toString()
+    }
+
+    fun get(context: Context?, key: String, default: Float): Float {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        return prefs!!.getFloat(key, default)
+    }
+
+    fun get(context: Context?, key: String, default: Long): Long {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        if (prefs == null) return default
+        return prefs.getLong(key, default)
+    }
+
+    fun get(context: Context?, key: String, default: Int): Int {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        if (prefs == null) return default
+        return prefs.getInt(key, default)
+    }
+
+    fun get(context: Context?, key: String, default: Boolean): Boolean {
+        var prefs = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        return prefs!!.getBoolean(key, default)
+    }
+
+    fun clear(context: Context?) {
+        val sharedPreferences = context?.getSharedPreferences(prefs, Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+        editor?.clear()
+        editor?.apply()
+    }
+}

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginHorizontal="28dp"
+        android:gravity="center"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/give_a_birth_to_a_healthy_baby"
+        android:textColor="#222222"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:lineSpacingExtra="9sp"
+        android:text="@string/nickname"
+        android:textColor="#444444"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button_background">
+
+            <EditText
+                android:id="@+id/etNickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:background="@android:color/transparent"
+                android:lineSpacingExtra="8sp"
+                android:hint="@string/plz_enter_ur_nickname"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/llCheckNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:background="@drawable/login_button_background">
+
+            <TextView
+                android:id="@+id/tvCheckNickname"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:paddingHorizontal="16dp"
+                android:text="@string/double_check"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvErrorNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:layout_marginTop="4dp"
+        android:layout_marginHorizontal="28dp"
+        android:visibility="invisible"
+        android:textSize="12sp"
+        android:textColor="@color/red"
+        android:lineSpacingExtra="6sp"
+        android:text="@string/error_user_nickname_contraints"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:lineSpacingExtra="9sp"
+        android:text="@string/date_of_birth"
+        android:textColor="#444444"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/login_button_background">
+
+        <TextView
+            android:id="@+id/tvDateOfBirth"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/example_date_of_birth"
+            android:textColor="@color/gray"
+            android:textSize="16sp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:lineSpacingExtra="9sp"
+        android:text="@string/gender"
+        android:textColor="#444444"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/llWoman"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/login_button_background">
+
+            <TextView
+                android:id="@+id/tvWoman"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:paddingHorizontal="16dp"
+                android:text="@string/woman"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llMan"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="6dp"
+            android:layout_weight="1"
+            android:background="@drawable/login_button_background">
+
+            <TextView
+                android:id="@+id/tvMan"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:text="@string/man"
+                android:textColor="@color/gray"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

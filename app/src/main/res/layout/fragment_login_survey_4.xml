@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mask="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="28dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="28dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="12sp"
+            android:text="@string/shall_we_start_taking_care_of_your_health"
+            android:textColor="#222222"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="8sp"
+            android:paddingHorizontal="16dp"
+            android:text="@string/diet_managment_is_the_most_important"
+            android:textColor="#666666"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
+            android:lineSpacingExtra="9sp"
+            android:text="@string/key"
+            android:textColor="#444444"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_button_background">
+
+
+            <com.github.reinaldoarrosi.maskededittext.MaskedEditText
+                android:id="@+id/etHeight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:digits="0123456789"
+                android:hint="@string/plz_enter_your_height"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
+            android:lineSpacingExtra="9sp"
+            android:text="@string/weight"
+            android:textColor="#444444"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_button_background">
+
+
+            <com.github.reinaldoarrosi.maskededittext.MaskedEditText
+                android:id="@+id/etWeight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:digits="0123456789"
+                android:hint="@string/plz_enter_your_weight"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
+            android:lineSpacingExtra="9sp"
+            android:text="@string/weight_before_pregnancy"
+            android:textColor="#444444"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_button_background">
+
+            <com.github.reinaldoarrosi.maskededittext.MaskedEditText
+                android:id="@+id/etWeightBefore"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:digits="0123456789"
+                android:hint="@string/plz_enter_your_pre_pregnancy_weight"
+                android:textColor="@color/black"
+                android:textSize="16sp"/>
+
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</ScrollView>

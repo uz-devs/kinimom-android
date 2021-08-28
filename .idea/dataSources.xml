@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="com.example" uuid="699c5bb0-9d4b-46cf-9533-c7820b5dee88">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g965n-2239d9e4ab0d7ece/data/data/com.example.sapandroidclient/databases/com.example.sapandroidclient</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="com.example [2]" uuid="38a65acb-3271-471f-a6d8-8f7373dd7956">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g950n-ce10171a7dbb213a04/data/data/com.example.sapandroidclient/databases/com.example.sapandroidclient</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

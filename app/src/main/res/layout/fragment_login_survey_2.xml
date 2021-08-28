@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="28dp"
+        android:gravity="center_horizontal"
+        android:lineSpacingExtra="12sp"
+        android:text="@string/when_is_the_expected_date_of_ur_baby"
+        android:textColor="#222222"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="28dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/login_button_background">
+
+        <TextView
+            android:id="@+id/tvExpectedDate"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="?selectableItemBackground"
+            android:clickable="true"
+            android:gravity="center"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/default_expected_date"
+            android:textColor="@color/gray"
+            android:textSize="16sp"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:textColor="#777777"
+        android:lineSpacingExtra="9sp"
+        android:gravity="center_horizontal"
+        android:text="@string/plz_enter_the_expected_date"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+</LinearLayout>

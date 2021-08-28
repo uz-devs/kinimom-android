@@ -1,0 +1,44 @@
+<resources>
+    <string name="app_name">키니맘</string>
+    <string name="login_title">간편 로그인</string>
+    <string name="login_description">SNS 계정으로 로그인하세요.</string>
+    <string name="login_using_naver">네이버 아이디로 로그인</string>
+    <string name="login_using_facebook">페이스북 아이디로 로그인</string>
+    <string name="login_using_kakao">카카오톡 아이디로 로그인</string>
+    <string name="plz_agree_to_terms_and_conditions">서비스 약관에 동의해 주세요.</string>
+    <string name="agree_to_all">모두 동의합니다.</string>
+    <string name="required_terms_of_service">[필수] 서비스 이용 약관</string>
+    <string name="required_privacy_policy">[필수] 개인정보처리방침</string>
+    <string name="required_personal_info_collection_and_usage_agreement">[필수] 개인정보 수집 및 이용동의</string>
+    <string name="required_consent_to_use_personal_info">[필수] 개인정보 수집 및 이용동의</string>
+    <string name="required_consent_to_third_party_provision_of_accredation">[필수] 인정보 제3자 제공에 대한 동의</string>
+
+    <string name="error_social_login_failed">소셜 로그인에 실패했습니다. 나중에 다시 시도.</string>
+    <string name="next">다음</string>
+    <string name="are_you_pregnant">소중한 아기를 품고 계신가요? 혹은 준비 중이신가요?</string>
+    <string name="i_have_a_baby_in_my_womb">뱃속에 아기가 있어요.</string>
+    <string name="i_am_getting_ready">준비 중이에요.</string>
+    <string name="when_is_the_expected_date_of_ur_baby">임신을 축하드려요!🎉 아기와 언제 만나게 될 예정인가요?</string>
+    <string name="plz_enter_the_expected_date">출산 예정일을 입력해 주세요.</string>
+    <string name="default_expected_date">예시 : 2030년 12월 12일</string>
+    <string name="give_a_birth_to_a_healthy_baby">280일 동안 \n 태아 영양 프로그램으로 \n 건강한 아기 출산하세요!</string>
+    <string name="nickname">닉네임</string>
+    <string name="plz_enter_ur_nickname">닉네임을 입력해 주세요.</string>
+    <string name="double_check">중복확인</string>
+    <string name="date_of_birth">생년월일</string>
+    <string name="example_date_of_birth">예시 : 1990년 01월 01일</string>
+    <string name="gender">성별</string>
+    <string name="woman">여자</string>
+    <string name="man">남자</string>
+    <string name="error_user_nickname_contraints">한글, 영문, 숫자로만 사용 가능합니다. (10글자 이내)</string>
+
+    <string name="error_internet_connection">인터넷 연결 문제가 있습니다. 나중에 다시 시도하세요.</string>
+    <string name="shall_we_start_taking_care_of_your_health">나에게 알맞은 건강관리를 시작해볼까요?</string>
+    <string name="diet_managment_is_the_most_important">아기와 엄마의 건강을 위해서는 식사관리가 가장 중요해요!</string>
+    <string name="key">키</string>
+    <string name="plz_enter_your_height">키를 입력해 주세요.</string>
+    <string name="weight">몸무게</string>
+    <string name="plz_enter_your_weight">현재 몸무게를 입력해 주세요.</string>
+    <string name="weight_before_pregnancy">임신 전 몸무게</string>
+    <string name="plz_enter_your_pre_pregnancy_weight">임신 전 몸무게를 입력해 주세요.</string>
+</resources>
