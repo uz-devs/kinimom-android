@@ -344,6 +344,7 @@
                     android:layout_marginTop="24dp">
 
                     <ImageView
+                        android:id="@+id/ivScore"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="28dp"
@@ -388,6 +389,7 @@
                         android:max="360" />
 
                     <TextView
+                        android:id="@+id/tvScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -396,6 +398,20 @@
                         android:textColor="#ffffff"
                         android:textSize="43sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvScoreAbove9"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"
+                        android:text="이상"
+                        android:paddingTop="84dp"
+                        android:textColor="#ffffff"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
 
                 </FrameLayout>
 

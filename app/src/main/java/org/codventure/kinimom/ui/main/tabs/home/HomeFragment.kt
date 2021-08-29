@@ -41,6 +41,23 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
         pbWife.rotation = 90f
         pbHusband.progress = husbandAngle.toInt()
         pbHusband.rotation = 90f - husbandAngle
+
+        val drawableIds = arrayOf(
+            R.drawable.home_ready_img_main_graph_01,
+            R.drawable.home_ready_img_main_graph_02,
+            R.drawable.home_ready_img_main_graph_03,
+            R.drawable.home_ready_img_main_graph_04,
+            R.drawable.home_ready_img_main_graph_05,
+            R.drawable.home_ready_img_main_graph_06,
+            R.drawable.home_ready_img_main_graph_07,
+            R.drawable.home_ready_img_main_graph_08,
+            R.drawable.home_ready_img_main_graph_09,
+            R.drawable.home_ready_img_main_graph_10
+        )
+        val totalScore = (husbandScore + wifeScore).toFloat() / 2
+        ivScore.setImageResource(drawableIds[totalScore.toInt()])
+        tvScore.text = "${totalScore.toInt() * 10}%"
+        tvScoreAbove9.visibility = if(totalScore > 9) View.VISIBLE else View.INVISIBLE
     }
 
     override fun setHusbandWifeResults(husbandResult: String, wifeResult: String) {
