@@ -7,7 +7,7 @@ import org.codventure.kinimom.framework.extension.uiThread
 import org.json.JSONObject
 import javax.inject.Inject
 
-class LoginPresenter(var view: LoginView?) {
+class LoginPresenter(var view: LoginView) {
 
     @Inject
     lateinit var signUp: SignUp
@@ -26,15 +26,15 @@ class LoginPresenter(var view: LoginView?) {
             )
             uiThread {
                 if (user == null) {
-                    view?.showSocialLoginFailed()
+                    view.showSocialLoginFailed()
                     return@uiThread
                 }
 
                 // check for survey results
                 if (user.shouldFillUpSurvey()) {
-                    view?.openSurvey()
+                    view.openSurvey()
                 } else {
-                    view?.openMain()
+                    view.openMain()
                 }
             }
         }

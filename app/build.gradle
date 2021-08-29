@@ -89,6 +89,11 @@ dependencies {
 
     // implementation 'ru.egslava:MaskedEditText:1.0.5'
     implementation 'com.github.reinaldoarrosi:maskededittext:1.1.0'
+
+    // radar view
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    // kakao auth
     implementation "com.kakao.sdk:v2-user:2.6.0" // Kakao Login
     implementation "com.kakao.sdk:v2-talk:2.6.0" // Kakao Talk Social, Message (Kakao Talk)
     implementation "com.kakao.sdk:v2-story:2.6.0" // Kakao Story
