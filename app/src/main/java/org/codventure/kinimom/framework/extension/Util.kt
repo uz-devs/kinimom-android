@@ -8,7 +8,7 @@ package org.codventure.kinimom.framework.extension
 fun String.removeChars(): String{
     var res = ""
     for (c in this)
-        if (!c.isDigit())
+        if (c.isDigit())
             res += c
     return res
 }

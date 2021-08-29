@@ -54,15 +54,15 @@ class LoginPresenter(var view: LoginView) {
             )
             uiThread {
                 if (user == null) {
-                    view?.showSocialLoginFailed()
+                    view.showSocialLoginFailed()
                     return@uiThread
                 }
 
                 // check for survey results
                 if (user.shouldFillUpSurvey()) {
-                    view?.openSurvey()
+                    view.openSurvey()
                 } else {
-                    view?.openMain()
+                    view.openMain()
                 }
             }
         }
@@ -82,15 +82,15 @@ class LoginPresenter(var view: LoginView) {
             )
             uiThread {
                 if (user == null) {
-                    view?.showSocialLoginFailed()
+                    view.showSocialLoginFailed()
                     return@uiThread
                 }
 
                 // check for survey results
                 if (user.shouldFillUpSurvey()) {
-                    view?.openSurvey()
+                    view.openSurvey()
                 } else {
-                    view?.openMain()
+                    view.openMain()
                 }
             }
         }
