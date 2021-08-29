@@ -2,6 +2,7 @@ package org.codventure.kinimom.framework.network
 
 import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.core.data.request.*
+import org.codventure.kinimom.core.data.response.TestLastOneResponse
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
 import org.codventure.kinimom.framework.settings.Settings
@@ -58,5 +59,11 @@ class Network
             this.comments = response.body()?.comments
                 ?: arrayListOf() // <- had to do this, becoz of poor design choice in JSON response
         }
+    }
+
+    override fun getTestLastOne(body: TestLastOneRequest): TestLastOneResponse? {
+        val token = settings.getToken()
+        val response = service.getTestLastOne(token, body).execute()
+        return response.body()
     }
 }

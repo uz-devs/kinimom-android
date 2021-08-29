@@ -10,16 +10,14 @@ import kotlinx.android.synthetic.main.fragment_main.*
 import org.codventure.kinimom.R
 import org.codventure.kinimom.ui.main.tabs.CommunityFragment
 import org.codventure.kinimom.ui.main.tabs.DailyFragment
-import org.codventure.kinimom.ui.main.tabs.HomeFragment
+import org.codventure.kinimom.ui.main.tabs.home.HomeFragment
 import org.codventure.kinimom.ui.main.tabs.SettingsFragment
-import org.codventure.kinimom.ui.splash.SplashFragment
 
 /**
  * Created by abduaziz on 8/13/21 at 11:37 AM.
  */
 
 class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNavigationItemSelectedListener{
-
     private val homeFragment = HomeFragment()
     private val dailyFragment = DailyFragment()
     private val communityFragment = CommunityFragment()
@@ -55,5 +53,4 @@ class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNa
             replace(R.id.fragment_main_tab_container, fragment)
         }
     }
-
 }

@@ -1,5 +1,6 @@
 package org.codventure.kinimom.core.data.response
 
+import com.google.gson.annotations.SerializedName
 import org.codventure.kinimom.core.domain.User
 
 /**

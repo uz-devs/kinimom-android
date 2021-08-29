@@ -1,9 +1,11 @@
 package org.codventure.kinimom.ui.authorization.login
 
 import com.facebook.Profile
+import org.codventure.kinimom.core.interactors.GetCommunities
 import org.codventure.kinimom.core.interactors.SignUp
 import org.codventure.kinimom.framework.extension.doAsync
 import org.codventure.kinimom.framework.extension.uiThread
+import org.codventure.kinimom.framework.settings.Settings
 import org.json.JSONObject
 import javax.inject.Inject
 
@@ -11,6 +13,12 @@ class LoginPresenter(var view: LoginView) {
 
     @Inject
     lateinit var signUp: SignUp
+
+    @Inject
+    lateinit var getCommunities: GetCommunities
+
+    @Inject
+    lateinit var settings: Settings
 
     fun signUpWithFacebook(profile: Profile) {
         doAsync {
@@ -94,5 +102,9 @@ class LoginPresenter(var view: LoginView) {
                 }
             }
         }
+    }
+
+    fun doShit() {
+        val token = settings.getToken()
     }
 }

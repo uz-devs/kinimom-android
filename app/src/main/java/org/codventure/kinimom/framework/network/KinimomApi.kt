@@ -12,7 +12,6 @@ import retrofit2.http.POST
  */
 
 internal interface KinimomApi {
-
     @POST("socialLogin")
     fun signUp(@Body body: SignUpRequest): Call<SignUpResponse>
 
@@ -21,7 +20,6 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: CheckNicknameRequest
     ): Call<CheckNicknameResponse>
-
 
     @POST("api/userInfoSave")
     fun userInfoSave(
@@ -40,4 +38,10 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: CommunityDetailRequest
     ): Call<CommunityDetailResponse>
+
+    @POST("api/testLastOne")
+    fun getTestLastOne(
+        @Header("Authorization") Authorization: String,
+        @Body body: TestLastOneRequest
+    ): Call<TestLastOneResponse>
 }

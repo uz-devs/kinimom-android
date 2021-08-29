@@ -24,7 +24,6 @@ import org.codventure.kinimom.ui.splash.SplashFragment
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
-
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         (application as AndroidApplication).appComponent
     }
