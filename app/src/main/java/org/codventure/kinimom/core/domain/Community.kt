@@ -30,4 +30,6 @@ class Community(
 
     // comments are not included in real JSON response, binded later, see framework/network/Network.kt
     var comments: ArrayList<Comment> = arrayListOf()
-)
+){
+    fun userLikesIt() = like_it != "FALSE"
+}

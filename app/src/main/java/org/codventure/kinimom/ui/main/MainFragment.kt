@@ -8,7 +8,7 @@ import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.codventure.kinimom.R
-import org.codventure.kinimom.ui.main.tabs.CommunityFragment
+import org.codventure.kinimom.ui.main.tabs.community.CommunityFragment
 import org.codventure.kinimom.ui.main.tabs.DailyFragment
 import org.codventure.kinimom.ui.main.tabs.home.HomeFragment
 import org.codventure.kinimom.ui.main.tabs.SettingsFragment
@@ -20,7 +20,8 @@ import org.codventure.kinimom.ui.main.tabs.SettingsFragment
 class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNavigationItemSelectedListener{
     private val homeFragment = HomeFragment()
     private val dailyFragment = DailyFragment()
-    private val communityFragment = CommunityFragment()
+    private val communityFragment =
+        CommunityFragment()
     private val settingsFragment = SettingsFragment()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
