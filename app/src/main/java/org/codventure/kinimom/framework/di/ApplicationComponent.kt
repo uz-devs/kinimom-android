@@ -7,6 +7,7 @@ import org.codventure.kinimom.ui.authorization.login.LoginPresenter
 import org.codventure.kinimom.ui.authorization.survey.SurveyPresenter
 import org.codventure.kinimom.ui.authorization.survey.pages.Page3Presenter
 import org.codventure.kinimom.ui.main.tabs.community.CommunityPresenter
+import org.codventure.kinimom.ui.main.tabs.home.HomePresenter
 import javax.inject.Singleton
 
 /**
@@ -26,4 +27,5 @@ interface ApplicationComponent {
     fun inject(presenter: SurveyPresenter)
 
     fun inject(presenter: CommunityPresenter)
+    fun inject(presenter: HomePresenter)
 }

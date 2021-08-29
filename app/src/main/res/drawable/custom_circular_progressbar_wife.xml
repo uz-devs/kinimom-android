@@ -4,5 +4,8 @@
     android:thickness="4dp"
     android:useLevel="true">
 
-    <solid android:color="#EEE" />
+    <gradient
+        android:startColor="@color/red"
+        android:endColor="#776497"
+        android:angle="270" />
 </shape>

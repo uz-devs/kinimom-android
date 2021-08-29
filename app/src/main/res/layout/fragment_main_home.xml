@@ -18,6 +18,7 @@
             android:src="@drawable/home_ic_top_notice" />
 
         <TextView
+            android:id="@+id/tvMonth"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -54,6 +55,7 @@
 
             <!--Week view-->
             <LinearLayout
+                android:id="@+id/llWeekView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -319,6 +321,7 @@
                     android:textStyle="bold" />
 
                 <TextView
+                    android:id="@+id/tvPeriod"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
@@ -334,40 +337,81 @@
                     android:textStyle="normal" />
 
                 <FrameLayout
-                    android:layout_width="244dp"
-                    android:layout_height="244dp"
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/home_pregnancy_progress_circle"
                     android:layout_marginTop="24dp">
 
                     <ImageView
+                        android:id="@+id/ivScore"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="16dp"
+                        android:layout_margin="28dp"
                         android:src="@drawable/home_ready_img_main_graph_06" />
 
-                    <ImageView
-                        android:layout_width="122dp"
-                        android:layout_height="244dp"
-                        android:src="@drawable/home_ready_img_main_graph_pink"/>
+                    <ProgressBar
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminateOnly="false"
+                        android:padding="6dp"
+                        android:scaleX="1.45"
+                        android:scaleY="1.45"
+                        android:progressDrawable="@drawable/home_pregnancy_progress_circle"
+                        android:progress="350"
+                        android:max="360"
+                        android:rotation="-85" />
 
-                    <ImageView
-                        android:layout_width="122dp"
-                        android:layout_height="244dp"
-                        android:layout_gravity="end"
-                        android:src="@drawable/home_ready_img_main_graph_blue"/>
+                    <ProgressBar
+                        android:id="@+id/pbHusband"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminateOnly="false"
+                        android:padding="6dp"
+                        android:scaleX="1.45"
+                        android:scaleY="1.45"
+                        android:progressDrawable="@drawable/custom_circular_progressbar_husband"
+                        android:progress="120"
+                        android:rotation="-30"
+                        android:max="360" />
+
+                    <ProgressBar
+                        android:id="@+id/pbWife"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:indeterminateOnly="false"
+                        android:padding="6dp"
+                        android:scaleX="1.45"
+                        android:scaleY="1.45"
+                        android:progressDrawable="@drawable/custom_circular_progressbar_wife"
+                        android:progress="60"
+                        android:rotation="90"
+                        android:max="360" />
 
                     <TextView
+                        android:id="@+id/tvScore"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:gravity="center_horizontal"
-                        android:lineSpacingExtra="6sp"
                         android:text="60%"
-                        android:paddingTop="24dp"
                         android:textColor="#ffffff"
                         android:textSize="43sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvScoreAbove9"
+                        android:visibility="invisible"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center_horizontal"
+                        android:text="이상"
+                        android:paddingTop="84dp"
+                        android:textColor="#ffffff"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+
 
                 </FrameLayout>
 
@@ -398,6 +442,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvWifeResults"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/home_droplet_button_background"
@@ -431,6 +476,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvHusbandResults"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/home_droplet_button_background_blue"
@@ -471,7 +517,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/black"
                     android:lineSpacingExtra="3sp"
-                    android:text="커뮤니티 BEST"/>
+                    android:text="커뮤니티 BEST" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -491,7 +537,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="160dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01"/>
+                            android:src="@drawable/home_sample_img_best_01" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -501,7 +547,7 @@
                             android:layout_marginTop="12dp"
                             android:textColor="@color/black"
                             android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1"/>
+                            android:text="요리왕찐천재abc1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -510,7 +556,7 @@
                             android:textSize="14sp"
                             android:textColor="#999999"
                             android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..."/>
+                            android:text="골목식당 전문가의 제자..." />
 
                     </LinearLayout>
 
@@ -525,7 +571,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="160dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01"/>
+                            android:src="@drawable/home_sample_img_best_01" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -535,7 +581,7 @@
                             android:layout_marginTop="12dp"
                             android:textColor="@color/black"
                             android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1"/>
+                            android:text="요리왕찐천재abc1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -544,7 +590,7 @@
                             android:textSize="14sp"
                             android:textColor="#999999"
                             android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..."/>
+                            android:text="골목식당 전문가의 제자..." />
 
                     </LinearLayout>
 
@@ -568,7 +614,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="160dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01"/>
+                            android:src="@drawable/home_sample_img_best_01" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -578,7 +624,7 @@
                             android:layout_marginTop="12dp"
                             android:textColor="@color/black"
                             android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1"/>
+                            android:text="요리왕찐천재abc1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -587,7 +633,7 @@
                             android:textSize="14sp"
                             android:textColor="#999999"
                             android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..."/>
+                            android:text="골목식당 전문가의 제자..." />
 
                     </LinearLayout>
 
@@ -602,7 +648,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="160dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01"/>
+                            android:src="@drawable/home_sample_img_best_01" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -612,7 +658,7 @@
                             android:layout_marginTop="12dp"
                             android:textColor="@color/black"
                             android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1"/>
+                            android:text="요리왕찐천재abc1" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -621,7 +667,7 @@
                             android:textSize="14sp"
                             android:textColor="#999999"
                             android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..."/>
+                            android:text="골목식당 전문가의 제자..." />
 
                     </LinearLayout>
 
@@ -650,7 +696,7 @@
                     android:textSize="24sp"
                     android:textColor="@color/black"
                     android:lineSpacingExtra="3sp"
-                    android:text="오늘의 하루 영상"/>
+                    android:text="오늘의 하루 영상" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -663,7 +709,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/home_sample_ytb_thumb"/>
+                        android:src="@drawable/home_sample_ytb_thumb" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -673,7 +719,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#666666"
                         android:lineSpacingExtra="8sp"
-                        android:text="만삭 임산부의 룩북 &amp; 쇼핑하울"/>
+                        android:text="만삭 임산부의 룩북 &amp; 쇼핑하울" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -682,15 +728,14 @@
                         android:textSize="14sp"
                         android:textColor="#999999"
                         android:lineSpacingExtra="6sp"
-                        android:text="슘짱♥"/>
+                        android:text="슘짱♥" />
 
                 </LinearLayout>
 
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/light_gray">
-                </View>
+                    android:background="@color/light_gray"></View>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -703,7 +748,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="160dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/home_sample_ytb_thumb"/>
+                        android:src="@drawable/home_sample_ytb_thumb" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -713,7 +758,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#666666"
                         android:lineSpacingExtra="8sp"
-                        android:text="만삭 임산부의 룩북 &amp; 쇼핑하울"/>
+                        android:text="만삭 임산부의 룩북 &amp; 쇼핑하울" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -722,7 +767,7 @@
                         android:textSize="14sp"
                         android:textColor="#999999"
                         android:lineSpacingExtra="6sp"
-                        android:text="슘짱♥"/>
+                        android:text="슘짱♥" />
 
                 </LinearLayout>
 

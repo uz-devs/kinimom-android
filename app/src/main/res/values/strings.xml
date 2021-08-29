@@ -45,4 +45,17 @@
     <string name="daily">데일리</string>
     <string name="community">커뮤니티</string>
     <string name="settings">설정</string>
+
+    <string name="month_format">%1$d년 %2$02d월</string>
+    <string-array name="weekdays">
+        <item>일</item>
+        <item>월</item>
+        <item>화</item>
+        <item>수</item>
+        <item>목</item>
+        <item>금</item>
+        <item>토</item>
+    </string-array>
+    <string name="period_format">가임기 %1$d.%2$02d.%3$02d~%4$d.%5$02d.%6$02d</string>
+    <string name="date_format">%1$02d</string>
 </resources>

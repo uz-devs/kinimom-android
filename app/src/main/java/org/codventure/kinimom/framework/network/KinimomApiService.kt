@@ -1,10 +1,7 @@
 package org.codventure.kinimom.framework.network
 
 import org.codventure.kinimom.core.data.request.*
-import org.codventure.kinimom.core.data.response.CheckNicknameResponse
-import org.codventure.kinimom.core.data.response.CommunityDetailResponse
-import org.codventure.kinimom.core.data.response.CommunityListResponse
-import org.codventure.kinimom.core.data.response.UserInfoSaveResponse
+import org.codventure.kinimom.core.data.response.*
 import retrofit2.Call
 import retrofit2.Retrofit
 import javax.inject.Inject
@@ -40,4 +37,9 @@ class KinimomApiService
         Authorization: String,
         body: CommunityDetailRequest
     ): Call<CommunityDetailResponse> = api.communityDetail(Authorization, body)
+
+    override fun getTestLastOne(
+        Authorization: String,
+        body: TestLastOneRequest
+    ): Call<TestLastOneResponse> = api.getTestLastOne(Authorization, body)
 }
