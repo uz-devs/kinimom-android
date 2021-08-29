@@ -43,7 +43,6 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
         callbackManager = CallbackManager.Factory.create()
         LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onSuccess(result: LoginResult?) {
-                toast("Facebook login successful")
                 val profile = Profile.getCurrentProfile()
                 if (profile != null)
                     presenter.signUpWithFacebook(profile)
