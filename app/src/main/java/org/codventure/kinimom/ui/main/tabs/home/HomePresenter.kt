@@ -30,13 +30,19 @@ class HomePresenter(val view: HomeView) {
 
     fun fetchLastScores() {
         doAsync {
-            val res = getTestLastOne(userId = settings.getUserId())
+            val res = getTestLastOne(userId = 18 /*settings.getUserId()*/)
             uiThread {
-                if (res?.wife_test_last_one?.isNotEmpty() == true && res.husband_test_last_one.isNotEmpty())
+                if (res?.wife_test_last_one?.isNotEmpty() == true && res.husband_test_last_one.isNotEmpty()) {
                     view.setHusbandWifeScores(
                         husbandScore = parseInt(res.husband_test_last_one[0].score!!),
                         wifeScore = parseInt(res.wife_test_last_one[0].love!!)
                     )
+
+                    view.setHusbandWifeResults(
+                        husbandResult = res.husband_test_last_one[0].results!!,
+                        wifeResult = res.wife_test_last_one[0].results!!
+                    )
+                }
             }
         }
     }

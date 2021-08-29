@@ -43,6 +43,11 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
         pbHusband.rotation = 90f - husbandAngle
     }
 
+    override fun setHusbandWifeResults(husbandResult: String, wifeResult: String) {
+        tvHusbandResults.text = husbandResult
+        tvWifeResults.text = wifeResult
+    }
+
     override fun setMonth(year: Int, month: Int) {
         tvMonth.text = getString(R.string.month_format, year, month)
     }

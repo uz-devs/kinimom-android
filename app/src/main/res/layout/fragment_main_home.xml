@@ -426,6 +426,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvWifeResults"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/home_droplet_button_background"
@@ -459,6 +460,7 @@
                             android:textStyle="bold" />
 
                         <TextView
+                            android:id="@+id/tvHusbandResults"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@drawable/home_droplet_button_background_blue"
