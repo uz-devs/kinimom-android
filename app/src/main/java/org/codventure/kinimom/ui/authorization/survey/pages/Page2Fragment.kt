@@ -31,7 +31,7 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.surveyResults.expected_date = dateString
         surveyFragment.updateNextButton()
 
-        tvExpectedDate.text = "예시 : $dateString"
+        tvExpectedDate.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
         tvExpectedDate.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 

@@ -42,6 +42,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         appComponent.inject(this)
 
+        openSurveyScreen()
+        return
+
         if (savedInstanceState == null) {
             if (settings.isUserLoggedIn()){
                 openSplashScreen()

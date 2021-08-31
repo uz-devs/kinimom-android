@@ -41,21 +41,22 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
 
         // region Facebook login
         callbackManager = CallbackManager.Factory.create()
-        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-            override fun onSuccess(result: LoginResult?) {
-                val profile = Profile.getCurrentProfile()
-                if (profile != null)
-                    presenter.signUpWithFacebook(profile)
-            }
+        LoginManager.getInstance()
+            .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(result: LoginResult?) {
+                    val profile = Profile.getCurrentProfile()
+                    if (profile != null)
+                        presenter.signUpWithFacebook(profile)
+                }
 
-            override fun onCancel() {
-                toast("Facebook login canceled")
-            }
+                override fun onCancel() {
+                    toast("Facebook login canceled")
+                }
 
-            override fun onError(error: FacebookException?) {
-                toast("Facebook login error")
-            }
-        })
+                override fun onError(error: FacebookException?) {
+                    toast("Facebook login error")
+                }
+            })
         llFacebookLogin.setOnClickListener {
             LoginManager.getInstance().logInWithReadPermissions(
                 this,
@@ -95,16 +96,21 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                             presenter.signUpWithNaver(
                                 mapOf(
                                     "id" to res.getJSONObject("response").getString("id"),
-                                    "nickname" to res.getJSONObject("response").getString("nickname"),
-                                    "profile_image" to res.getJSONObject("response").getString("profile_image"),
+                                    "nickname" to res.getJSONObject("response")
+                                        .getString("nickname"),
+                                    "profile_image" to res.getJSONObject("response")
+                                        .getString("profile_image"),
                                     "age" to res.getJSONObject("response").getString("age"),
                                     "gender" to res.getJSONObject("response").getString("gender"),
                                     "email" to res.getJSONObject("response").getString("email"),
                                     "mobile" to res.getJSONObject("response").getString("mobile"),
-                                    "mobile_e164" to res.getJSONObject("response").getString("mobile_e164"),
+                                    "mobile_e164" to res.getJSONObject("response")
+                                        .getString("mobile_e164"),
                                     "name" to res.getJSONObject("response").getString("name"),
-                                    "birthday" to res.getJSONObject("response").getString("birthday"),
-                                    "birthyear" to res.getJSONObject("response").getString("birthyear")
+                                    "birthday" to res.getJSONObject("response")
+                                        .getString("birthday"),
+                                    "birthyear" to res.getJSONObject("response")
+                                        .getString("birthyear")
                                 )
                             )
                     }.start()
@@ -135,9 +141,15 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                         // maybe kakaotalk is not installed, open web browser
                         UserApiClient.instance.loginWithKakaoAccount(requireActivity()) { _token, _error ->
                             if (_error != null)
-                                Log.e("LoginFragment", "Kakao web login failure : ${_error.message}")
+                                Log.e(
+                                    "LoginFragment",
+                                    "Kakao web login failure : ${_error.message}"
+                                )
                             else if (_token != null) {
-                                Log.e("LoginFragment", "Kakao web login success : ${_token.accessToken}")
+                                Log.e(
+                                    "LoginFragment",
+                                    "Kakao web login success : ${_token.accessToken}"
+                                )
 
                                 UserApiClient.instance.me { user, error ->
                                     if (user != null)
@@ -169,6 +181,18 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         callbackManager.onActivityResult(requestCode, resultCode, data)
         super.onActivityResult(requestCode, resultCode, data)
+    }
+
+    override fun enableLoginButtons() {
+        llNaverLogin.isEnabled = true
+        llFacebookLogin.isEnabled = true
+        llKakaoLogin.isEnabled = true
+    }
+
+    override fun disableLoginButtons() {
+        llNaverLogin.isEnabled = false
+        llFacebookLogin.isEnabled = false
+        llKakaoLogin.isEnabled = false
     }
 
     override fun showSocialLoginFailed() {

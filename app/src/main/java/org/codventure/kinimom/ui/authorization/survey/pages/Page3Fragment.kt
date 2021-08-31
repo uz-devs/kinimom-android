@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_login_survey_3.*
 import org.codventure.kinimom.AndroidApplication
@@ -32,6 +33,10 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         presenter = Page3Presenter(this)
         appComponent.inject(presenter)
 
+        etNickname.addTextChangedListener { s ->
+            presenter.validateNickname(s.toString())
+        }
+
         tvCheckNickname.setOnClickListener {
             presenter.checkUserNickname(etNickname.text.toString())
         }
@@ -53,24 +58,57 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         toast(getString(R.string.error_internet_connection))
     }
 
+    override fun disableCheckNicknameButton() {
+        llCheckNickname.setBackgroundResource(R.drawable.login_button_background)
+        tvCheckNickname.text = getString(R.string.double_check)
+        tvCheckNickname.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+    }
+
+    override fun enableCheckNickameButton() {
+        llCheckNickname.setBackgroundResource(R.drawable.login_button_background_enabled)
+        tvCheckNickname.text = getString(R.string.double_check)
+        tvCheckNickname.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+    }
+
+    override fun showValidNickname() {
+        surveyFragment.surveyResults.nickname = ""
+        surveyFragment.updateNextButton()
+
+        tvCheckNicknameStatus.text = ""
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+    }
+
     override fun showInvalidNicknameError() {
         surveyFragment.surveyResults.nickname = ""
         surveyFragment.updateNextButton()
 
-        tvErrorNickname.visibility = View.VISIBLE
-        llCheckNickname.setBackgroundResource(R.drawable.login_button_background)
-        tvCheckNickname.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+        tvCheckNicknameStatus.text = getString(R.string.error_user_nickname_contraints)
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
     }
 
-    override fun showValidNickname(validNickname: String) {
-        etNickname.setText(validNickname)
-        surveyFragment.surveyResults.nickname = validNickname
-        surveyFragment.updateNextButton()
+    override fun showNicknameUnavailable(invalidNickname: String) {
+        etNickname.setText(invalidNickname)
         (activity as MainActivity).hideSoftInput()
 
-        tvErrorNickname.visibility = View.INVISIBLE
-        llCheckNickname.setBackgroundResource(R.drawable.login_button_background_enabled)
-        tvCheckNickname.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
+        surveyFragment.surveyResults.nickname = ""
+        surveyFragment.updateNextButton()
+
+        tvCheckNicknameStatus.text = getString(R.string.error_user_nickname_contraints)
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+    }
+
+    override fun showNicknameAvailable(validNickname: String) {
+        etNickname.setText(validNickname)
+        (activity as MainActivity).hideSoftInput()
+
+        surveyFragment.surveyResults.nickname = validNickname
+        surveyFragment.updateNextButton()
+
+        tvCheckNicknameStatus.text = getString(R.string.available_nickname)
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+
+        disableCheckNicknameButton()
+        tvCheckNickname.text = getString(R.string.available)
     }
 
     private fun setSelectedDate(year: Int, monthOfYear: Int, dayOfMonth: Int) {
@@ -78,7 +116,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.surveyResults.date_of_birth = dateString
         surveyFragment.updateNextButton()
 
-        tvDateOfBirth.text = "예시 : $dateString"
+        tvDateOfBirth.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
         tvDateOfBirth.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 

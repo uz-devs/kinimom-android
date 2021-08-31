@@ -28,23 +28,32 @@ class Page3Presenter(var view: Page3View) {
                 }
 
                 if (isValidNickname){
-                    view.showValidNickname(nickname)
+                    view.showNicknameAvailable(nickname)
                 }else{
-                    view.showInvalidNicknameError()
+                    view.showNicknameUnavailable(nickname)
                 }
             }
         }
     }
 
     private val disallowedChars = "[ !\"#$%&'()*+,-./:;<=>?@\\[\\\\\\]^_`{|}~]+"
-    private fun validateNickname(nickname: String): Boolean {
-        if (nickname.length > 10)
+    fun validateNickname(nickname: String): Boolean {
+        if (nickname.length <= 2 || nickname.length > 10){
+            view.showInvalidNicknameError()
+            view.disableCheckNicknameButton()
             return false
+        }
 
         for (c in nickname){
-            if (disallowedChars.contains(c))
+            if (disallowedChars.contains(c)){
+                view.showInvalidNicknameError()
+                view.disableCheckNicknameButton()
                 return false
+            }
         }
+
+        view.showValidNickname()
+        view.enableCheckNickameButton()
         return true
     }
 

@@ -21,6 +21,7 @@ class LoginPresenter(var view: LoginView) {
     lateinit var settings: Settings
 
     fun signUpWithFacebook(profile: Profile) {
+        view.disableLoginButtons()
         doAsync {
             val user = signUp(
                 social_login_type = "facebook",
@@ -33,6 +34,7 @@ class LoginPresenter(var view: LoginView) {
                 gender = ""
             )
             uiThread {
+                view.enableLoginButtons()
                 if (user == null) {
                     view.showSocialLoginFailed()
                     return@uiThread
@@ -49,6 +51,7 @@ class LoginPresenter(var view: LoginView) {
     }
 
     fun signUpWithNaver(profile: Map<String, String>) {
+        view.disableLoginButtons()
         doAsync {
             val user = signUp(
                 social_login_type = "naver",
@@ -61,6 +64,7 @@ class LoginPresenter(var view: LoginView) {
                 gender = profile["gender"] ?: ""
             )
             uiThread {
+                view.enableLoginButtons()
                 if (user == null) {
                     view.showSocialLoginFailed()
                     return@uiThread
@@ -77,6 +81,7 @@ class LoginPresenter(var view: LoginView) {
     }
 
     fun signUpWithKakao(profile: Map<String, String?>) {
+        view.disableLoginButtons()
         doAsync {
             val user = signUp(
                 social_login_type = "kakaotalk",
@@ -89,6 +94,7 @@ class LoginPresenter(var view: LoginView) {
                 gender = profile["gender"] ?: ""
             )
             uiThread {
+                view.enableLoginButtons()
                 if (user == null) {
                     view.showSocialLoginFailed()
                     return@uiThread
@@ -102,9 +108,5 @@ class LoginPresenter(var view: LoginView) {
                 }
             }
         }
-    }
-
-    fun doShit() {
-        val token = settings.getToken()
     }
 }
