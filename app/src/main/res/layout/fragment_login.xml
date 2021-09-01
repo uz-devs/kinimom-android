@@ -1,105 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_vertical"
-    android:padding="28dp">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="26sp"
-        android:textColor="#222222"
-        android:lineSpacingExtra="4sp"
-        android:text="@string/login_title" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="#666666"
-        android:lineSpacingExtra="8sp"
-        android:text="@string/login_description"
-        android:layout_marginBottom="30dp" />
+    android:layout_height="match_parent">
 
     <LinearLayout
-        android:id="@+id/llNaverLogin"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/login_button_background">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/login_img_naver_logo"
-            android:layout_margin="12dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:padding="28dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal"
-            android:layout_gravity="center_vertical"
-            android:textSize="15sp"
-            android:textColor="#666666"
-            android:lineSpacingExtra="7sp"
-            android:text="@string/login_using_naver" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/llFacebookLogin"
-        android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/login_button_background">
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/login_img_facebook_logo"
-            android:layout_margin="12dp" />
+            android:textStyle="bold"
+            android:textSize="26sp"
+            android:textColor="#222222"
+            android:lineSpacingExtra="4sp"
+            android:text="@string/login_title" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal"
-            android:layout_gravity="center_vertical"
-            android:textSize="15sp"
+            android:textSize="16sp"
             android:textColor="#666666"
-            android:lineSpacingExtra="7sp"
-            android:text="@string/login_using_facebook" />
+            android:lineSpacingExtra="8sp"
+            android:text="@string/login_description"
+            android:layout_marginBottom="30dp" />
+
+        <LinearLayout
+            android:id="@+id/llNaverLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_button_background">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/login_img_naver_logo"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="#666666"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/login_using_naver" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llFacebookLogin"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_button_background">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/login_img_facebook_logo"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="#666666"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/login_using_facebook" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:id="@+id/llKakaoLogin"
+            android:layout_height="56dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/login_button_background">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/login_img_kakao_logo"
+                android:layout_margin="12dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="normal"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="#666666"
+                android:lineSpacingExtra="7sp"
+                android:text="@string/login_using_kakao" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/flProgress"
         android:layout_width="match_parent"
-        android:id="@+id/llKakaoLogin"
-        android:layout_height="56dp"
-        android:orientation="horizontal"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/login_button_background">
+        android:layout_height="match_parent"
+        android:background="#aaffffff"
+        android:clickable="true"
+        android:visibility="gone">
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:src="@drawable/login_img_kakao_logo"
-            android:layout_margin="12dp" />
-
-        <TextView
+        <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="normal"
-            android:layout_gravity="center_vertical"
-            android:textSize="15sp"
-            android:textColor="#666666"
-            android:lineSpacingExtra="7sp"
-            android:text="@string/login_using_kakao" />
+            android:layout_gravity="center"/>
 
-    </LinearLayout>
+    </FrameLayout>
 
-</LinearLayout>
+</FrameLayout>

@@ -40,7 +40,7 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
         val dialog = DatePickerDialog(
             requireContext(),
             DatePickerDialog.OnDateSetListener() { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                setSelectedDate(year, monthOfYear, dayOfMonth)
+                setSelectedDate(year, monthOfYear+1, dayOfMonth)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),

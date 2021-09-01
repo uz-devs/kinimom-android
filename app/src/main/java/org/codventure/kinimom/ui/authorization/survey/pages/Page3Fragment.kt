@@ -93,7 +93,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.surveyResults.nickname = ""
         surveyFragment.updateNextButton()
 
-        tvCheckNicknameStatus.text = getString(R.string.error_user_nickname_contraints)
+        tvCheckNicknameStatus.text = getString(R.string.error_unavailable_nickname)
         tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
     }
 
@@ -125,7 +125,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         val dialog = DatePickerDialog(
             requireContext(),
             DatePickerDialog.OnDateSetListener() { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                setSelectedDate(year, monthOfYear, dayOfMonth)
+                setSelectedDate(year, monthOfYear+1, dayOfMonth)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),

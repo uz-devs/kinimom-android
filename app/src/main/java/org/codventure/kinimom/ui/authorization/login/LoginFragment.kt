@@ -20,7 +20,9 @@ import kotlinx.android.synthetic.main.fragment_login.*
 import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.di.ApplicationComponent
+import org.codventure.kinimom.framework.extension.doAsync
 import org.codventure.kinimom.framework.extension.toast
+import org.codventure.kinimom.framework.extension.uiThread
 import org.codventure.kinimom.ui.MainActivity
 import org.json.JSONObject
 
@@ -44,20 +46,24 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
         LoginManager.getInstance()
             .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
                 override fun onSuccess(result: LoginResult?) {
+                    enableLoginButtons()
                     val profile = Profile.getCurrentProfile()
                     if (profile != null)
                         presenter.signUpWithFacebook(profile)
                 }
 
                 override fun onCancel() {
+                    enableLoginButtons()
                     toast("Facebook login canceled")
                 }
 
                 override fun onError(error: FacebookException?) {
+                    enableLoginButtons()
                     toast("Facebook login error")
                 }
             })
         llFacebookLogin.setOnClickListener {
+            disableLoginButtons()
             LoginManager.getInstance().logInWithReadPermissions(
                 this,
                 listOf("email", "public_profile")
@@ -76,6 +82,8 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
         @SuppressLint("HandlerLeak")
         mOAuthLoginHandler = object : OAuthLoginHandler() {
             override fun run(success: Boolean) {
+                enableLoginButtons()
+
                 if (success) {
                     val naverAccessToken = mOAuthLoginModule.getAccessToken(context)
                     val naverRefreshToken = mOAuthLoginModule.getRefreshToken(context)
@@ -83,38 +91,41 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                     val naverTokenType = mOAuthLoginModule.getTokenType(context)
                     val naverAuthState = mOAuthLoginModule.getState(context).toString()
 
-                    // todo get profile with token
-                    Thread {
+                    // get profile with token
+                    disableLoginButtons()
+                    doAsync {
                         val res = JSONObject(
                             mOAuthLoginModule.requestApi(
                                 requireActivity(),
                                 naverAccessToken,
                                 "https://openapi.naver.com/v1/nid/me"
-                            )
+                            ) ?: ""
                         )
-                        if (res.getString("resultcode") == "00")
-                            presenter.signUpWithNaver(
-                                mapOf(
-                                    "id" to res.getJSONObject("response").getString("id"),
-                                    "nickname" to res.getJSONObject("response")
-                                        .getString("nickname"),
-                                    "profile_image" to res.getJSONObject("response")
-                                        .getString("profile_image"),
-                                    "age" to res.getJSONObject("response").getString("age"),
-                                    "gender" to res.getJSONObject("response").getString("gender"),
-                                    "email" to res.getJSONObject("response").getString("email"),
-                                    "mobile" to res.getJSONObject("response").getString("mobile"),
-                                    "mobile_e164" to res.getJSONObject("response")
-                                        .getString("mobile_e164"),
-                                    "name" to res.getJSONObject("response").getString("name"),
-                                    "birthday" to res.getJSONObject("response")
-                                        .getString("birthday"),
-                                    "birthyear" to res.getJSONObject("response")
-                                        .getString("birthyear")
+                        uiThread {
+                            enableLoginButtons()
+                            if (res.getString("resultcode") == "00")
+                                presenter.signUpWithNaver(
+                                    mapOf(
+                                        "id" to res.getJSONObject("response").getString("id"),
+                                        "nickname" to res.getJSONObject("response")
+                                            .getString("nickname"),
+                                        "profile_image" to res.getJSONObject("response")
+                                            .getString("profile_image"),
+                                        "age" to res.getJSONObject("response").getString("age"),
+                                        "gender" to res.getJSONObject("response").getString("gender"),
+                                        "email" to res.getJSONObject("response").getString("email"),
+                                        "mobile" to res.getJSONObject("response").getString("mobile"),
+                                        "mobile_e164" to res.getJSONObject("response")
+                                            .getString("mobile_e164"),
+                                        "name" to res.getJSONObject("response").getString("name"),
+                                        "birthday" to res.getJSONObject("response")
+                                            .getString("birthday"),
+                                        "birthyear" to res.getJSONObject("response")
+                                            .getString("birthyear")
+                                    )
                                 )
-                            )
-                    }.start()
-                    toast("Naver login successful")
+                        }
+                    }
                 } else {
                     val errorCode = mOAuthLoginModule.getLastErrorCode(context).code
                     val errorDesc = mOAuthLoginModule.getLastErrorDesc(context)
@@ -125,21 +136,25 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
             }
         }
         llNaverLogin.setOnClickListener {
+            disableLoginButtons()
             mOAuthLoginModule.startOauthLoginActivity(activity, mOAuthLoginHandler)
         }
         // endregion
 
         // region Kakao login
-        if (activity != null)
-            KakaoSdk.init(requireActivity(), getString(R.string.KAKAO_NATIVE_APP_KEY))
         llKakaoLogin.setOnClickListener {
-            if (activity != null)
+            if (activity != null){
+                disableLoginButtons()
+                KakaoSdk.init(requireActivity(), getString(R.string.KAKAO_NATIVE_APP_KEY))
                 UserApiClient.instance.loginWithKakaoTalk(requireActivity()) { token, error ->
+                    enableLoginButtons()
                     if (error != null) {
                         Log.e("LoginFragment", "Kakao app login failure : ${error.message}")
 
                         // maybe kakaotalk is not installed, open web browser
+                        disableLoginButtons()
                         UserApiClient.instance.loginWithKakaoAccount(requireActivity()) { _token, _error ->
+                            enableLoginButtons()
                             if (_error != null)
                                 Log.e(
                                     "LoginFragment",
@@ -151,9 +166,11 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                                     "Kakao web login success : ${_token.accessToken}"
                                 )
 
+                                disableLoginButtons()
                                 UserApiClient.instance.me { user, error ->
+                                    enableLoginButtons()
                                     if (user != null)
-                                    // todo get profile with _token
+                                        // get profile with _token
                                         presenter.signUpWithKakao(
                                             mapOf(
                                                 "id" to user.id.toString(),
@@ -174,6 +191,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                         presenter.signUpWithKakao(mapOf<String, String>("name" to "qobiljon"))
                     }
                 }
+            }
         }
         // endregion
     }
@@ -187,12 +205,14 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
         llNaverLogin.isEnabled = true
         llFacebookLogin.isEnabled = true
         llKakaoLogin.isEnabled = true
+        flProgress.visibility = View.GONE
     }
 
     override fun disableLoginButtons() {
         llNaverLogin.isEnabled = false
         llFacebookLogin.isEnabled = false
         llKakaoLogin.isEnabled = false
+        flProgress.visibility = View.VISIBLE
     }
 
     override fun showSocialLoginFailed() {

@@ -34,6 +34,7 @@
     <string name="available">사용가능</string>
     <string name="error_user_nickname_contraints">한글, 영문, 숫자로만 사용 가능합니다. (10글자 이내)</string>
     <string name="available_nickname">사용 가능한 닉네임입니다</string>
+    <string name="error_unavailable_nickname">이미 있는 닉네임일 경우 중복된 닉네임입니다.</string>
 
     <string name="error_internet_connection">인터넷 연결 문제가 있습니다. 나중에 다시 시도하세요.</string>
     <string name="shall_we_start_taking_care_of_your_health">나에게 알맞은 건강관리를 시작해볼까요?</string>
