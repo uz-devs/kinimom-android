@@ -33,7 +33,7 @@
 
     <string name="available">사용가능</string>
     <string name="error_user_nickname_contraints">한글, 영문, 숫자로만 사용 가능합니다. (10글자 이내)</string>
-    <string name="available_nickname">사용 가능한 닉네임입니다</string>
+    <string name="available_nickname">사용 가능한 닉네임입니다.</string>
     <string name="error_unavailable_nickname">이미 있는 닉네임일 경우 중복된 닉네임입니다.</string>
 
     <string name="error_internet_connection">인터넷 연결 문제가 있습니다. 나중에 다시 시도하세요.</string>
@@ -62,4 +62,9 @@
     </string-array>
     <string name="period_format">가임기 %1$d.%2$02d.%3$02d~%4$d.%5$02d.%6$02d</string>
     <string name="date_format">%1$02d</string>
+    <string name="preparing_for_healthy_pregnancy_start_now">건강한 임신 준비\n지금부터 시작!</string>
+    <string name="let_me_tell_you_the_best_days_to_get_pregnant">임신하기에 좋은 날을 알려드려요.</string>
+    <string name="last_menstrual_period">마지막 생리종료일(최근)</string>
+    <string name="menstrual_cycle">생리 주기</string>
+    <string name="menstrual_period">생리 기간</string>
 </resources>

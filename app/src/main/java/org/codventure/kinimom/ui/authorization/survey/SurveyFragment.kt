@@ -12,10 +12,7 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.di.ApplicationComponent
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
-import org.codventure.kinimom.ui.authorization.survey.pages.Page1Fragment
-import org.codventure.kinimom.ui.authorization.survey.pages.Page2Fragment
-import org.codventure.kinimom.ui.authorization.survey.pages.Page3Fragment
-import org.codventure.kinimom.ui.authorization.survey.pages.Page4Fragment
+import org.codventure.kinimom.ui.authorization.survey.pages.*
 
 /**
  * Created by abduaziz on 8/12/21 at 3:02 PM.
@@ -31,11 +28,14 @@ class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
 
     val surveyResults = SurveyResults()
 
-    private val page1 = Page1Fragment(this)
-    private val page2 = Page2Fragment(this)
-    private val page3 = Page3Fragment(this)
-    private val page4 = Page4Fragment(this)
-    private val pages = listOf(page1, page2, page3, page4)
+    private val pages = arrayListOf(Page1Fragment(this), Page2Fragment(this),
+        Page3Fragment(this), Page4Fragment(this))
+    lateinit var adapter: SurveyPagerAdapter
+
+    private val pagesPreparing = arrayListOf(Page1Fragment(this), Page3Fragment(this),
+        Page4Fragment(this, true), PreparingPage4Fragment(this))
+    lateinit var adapterPreparing: SurveyPagerAdapter
+
     private lateinit var indicators: Array<ImageView>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,7 +45,8 @@ class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
 
         indicators = arrayOf(indicator1, indicator2, indicator3, indicator4)
 
-        val adapter = SurveyPagerAdapter(this, pages)
+        adapter = SurveyPagerAdapter(this, pages)
+        adapterPreparing = SurveyPagerAdapter(this, pagesPreparing)
 
         viewPager.isUserInputEnabled = false // pages can't be scrolled by user
         viewPager.adapter = adapter
@@ -71,6 +72,16 @@ class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
         viewPager.currentItem = 0
     }
 
+    fun setPreparingPages(){
+        viewPager.adapter = adapterPreparing
+        viewPager.currentItem = 1
+    }
+
+    fun setPregnantPages(){
+        viewPager.adapter = adapter
+        viewPager.currentItem = 1
+    }
+
     private fun updateIndicators() {
         indicators.forEach {
             it.setImageResource(R.drawable.login_btn_topslide_off)
@@ -89,6 +100,13 @@ class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
     }
 
     private fun onNextClicked() {
+        if (viewPager.currentItem == 0){
+            if (surveyResults.isPreparing())
+                setPreparingPages()
+            else
+                setPregnantPages()
+            return
+        }
         if (viewPager.currentItem + 1 < viewPager.adapter!!.itemCount) {
             viewPager.currentItem = viewPager.currentItem + 1
         } else {

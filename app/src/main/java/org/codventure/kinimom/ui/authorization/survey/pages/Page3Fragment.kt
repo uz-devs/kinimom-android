@@ -95,6 +95,8 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
 
         tvCheckNicknameStatus.text = getString(R.string.error_unavailable_nickname)
         tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+
+        disableCheckNicknameButton()
     }
 
     override fun showNicknameAvailable(validNickname: String) {

@@ -26,9 +26,9 @@ class UserInfoSave
                 surveyResults.height,
                 surveyResults.weight,
                 surveyResults.weight_before,
-                "",
-                "",
-                ""
+                surveyResults.period_cycle,
+                surveyResults.period_term,
+                surveyResults.period_end_date
             )
         )
     }

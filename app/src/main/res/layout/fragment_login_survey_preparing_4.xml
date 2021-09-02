@@ -6,6 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="vertical">
 
         <View
@@ -19,7 +20,7 @@
             android:layout_marginHorizontal="28dp"
             android:gravity="center_horizontal"
             android:lineSpacingExtra="12sp"
-            android:text="@string/shall_we_start_taking_care_of_your_health"
+            android:text="@string/preparing_for_healthy_pregnancy_start_now"
             android:textColor="#222222"
             android:textSize="25sp"
             android:textStyle="bold" />
@@ -33,7 +34,7 @@
             android:gravity="center_horizontal"
             android:lineSpacingExtra="8sp"
             android:paddingHorizontal="16dp"
-            android:text="@string/diet_managment_is_the_most_important"
+            android:text="@string/let_me_tell_you_the_best_days_to_get_pregnant"
             android:textColor="#666666"
             android:textSize="16sp"
             android:textStyle="normal" />
@@ -44,7 +45,39 @@
             android:layout_marginLeft="28dp"
             android:layout_marginTop="28dp"
             android:lineSpacingExtra="9sp"
-            android:text="@string/key"
+            android:text="@string/last_menstrual_period"
+            android:textColor="#444444"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/login_button_background">
+
+            <TextView
+                android:id="@+id/tvLastMenstrualPeriod"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?selectableItemBackground"
+                android:clickable="true"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:text="2021년 06월 30일"
+                android:textColor="@color/gray"
+                android:textSize="16sp" />
+
+        </FrameLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="28dp"
+            android:lineSpacingExtra="9sp"
+            android:text="@string/menstrual_cycle"
             android:textColor="#444444"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -58,13 +91,13 @@
 
 
             <com.github.reinaldoarrosi.maskededittext.MaskedEditText
-                android:id="@+id/etHeight"
+                android:id="@+id/etMenstrualCycle"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:digits="0123456789"
-                android:hint="@string/plz_enter_your_height"
+                android:hint="28일"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -76,7 +109,7 @@
             android:layout_marginLeft="28dp"
             android:layout_marginTop="28dp"
             android:lineSpacingExtra="9sp"
-            android:text="@string/weight"
+            android:text="@string/menstrual_period"
             android:textColor="#444444"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -88,48 +121,14 @@
             android:layout_marginTop="8dp"
             android:background="@drawable/login_button_background">
 
-
             <com.github.reinaldoarrosi.maskededittext.MaskedEditText
-                android:id="@+id/etWeight"
+                android:id="@+id/etMenstrualPeriod"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:digits="0123456789"
-                android:hint="@string/plz_enter_your_weight"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
-
-        </FrameLayout>
-
-        <TextView
-            android:id="@+id/tvWeightBeforePregnancy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:layout_marginTop="28dp"
-            android:lineSpacingExtra="9sp"
-            android:text="@string/weight_before_pregnancy"
-            android:textColor="#444444"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <FrameLayout
-            android:id="@+id/flWeightBeforePregnancy"
-            android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_marginHorizontal="28dp"
-            android:layout_marginTop="8dp"
-            android:background="@drawable/login_button_background">
-
-            <com.github.reinaldoarrosi.maskededittext.MaskedEditText
-                android:id="@+id/etWeightBefore"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/transparent"
-                android:gravity="center"
-                android:digits="0123456789"
-                android:hint="@string/plz_enter_your_pre_pregnancy_weight"
+                android:hint="5일"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
