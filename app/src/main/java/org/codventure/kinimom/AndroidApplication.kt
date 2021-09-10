@@ -21,7 +21,7 @@ class AndroidApplication : Application() {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true)
         this.injectMembers()
 
-        FacebookSdk.sdkInitialize(this)
+        FacebookSdk.sdkInitialize(this) // why deprecated?
         AppEventsLogger.activateApp(this)
     }
 
