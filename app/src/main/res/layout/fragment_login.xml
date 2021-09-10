@@ -43,6 +43,7 @@
                 android:layout_margin="12dp" />
 
             <TextView
+                android:id="@+id/tvNaverLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="normal"
@@ -69,12 +70,13 @@
                 android:layout_margin="12dp" />
 
             <TextView
+                android:id="@+id/tvFacebookLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="normal"
                 android:layout_gravity="center_vertical"
                 android:textSize="15sp"
-                android:textColor="#666666"
+                android:textColor="@color/black"
                 android:lineSpacingExtra="7sp"
                 android:text="@string/login_using_facebook" />
 
@@ -95,12 +97,13 @@
                 android:layout_margin="12dp" />
 
             <TextView
+                android:id="@+id/tvKakaoLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="normal"
                 android:layout_gravity="center_vertical"
                 android:textSize="15sp"
-                android:textColor="#666666"
+                android:textColor="@color/black"
                 android:lineSpacingExtra="7sp"
                 android:text="@string/login_using_kakao" />
 

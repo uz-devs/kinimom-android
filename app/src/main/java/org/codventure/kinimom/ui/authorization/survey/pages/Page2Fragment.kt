@@ -21,6 +21,11 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // set date to today
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
+        tvExpectedDate.hint = "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${calendar.get(Calendar.DAY_OF_MONTH)}일"
+
         tvExpectedDate.setOnClickListener {
             openDatePicker()
         }
@@ -32,7 +37,6 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.updateNextButton()
 
         tvExpectedDate.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
-        tvExpectedDate.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 
     private fun openDatePicker() {

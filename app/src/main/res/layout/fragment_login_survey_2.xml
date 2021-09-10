@@ -5,12 +5,9 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 
     <TextView
+        android:id="@+id/tvSurveyPage2Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="28dp"
@@ -36,8 +33,8 @@
             android:clickable="true"
             android:gravity="center"
             android:lineSpacingExtra="8sp"
-            android:text="@string/default_expected_date"
-            android:textColor="@color/gray"
+            android:hint="@string/default_expected_date"
+            android:textColor="@color/black"
             android:textSize="16sp"/>
 
     </FrameLayout>
@@ -52,10 +49,5 @@
         android:lineSpacingExtra="9sp"
         android:gravity="center_horizontal"
         android:text="@string/plz_enter_the_expected_date"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
 
 </LinearLayout>

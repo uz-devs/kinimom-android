@@ -1,7 +1,9 @@
 package org.codventure.kinimom.ui.authorization.survey.pages
 
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
+import android.widget.EditText
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_login_survey_4.*
@@ -18,28 +20,6 @@ class Page4Fragment(val surveyFragment: SurveyFragment, var isPreparing: Boolean
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        etHeight.mask = "999cm"
-        etHeight.addTextChangedListener { s ->
-            surveyFragment.surveyResults.height = s.toString().removeChars()
-            surveyFragment.updateNextButton()
-        }
-
-        etWeight.mask = "999kg"
-        etWeight.addTextChangedListener { s ->
-            surveyFragment.surveyResults.weight = s.toString().removeChars()
-            surveyFragment.updateNextButton()
-        }
-
-        etWeightBefore.mask = "999kg"
-        etWeightBefore.addTextChangedListener { s ->
-            surveyFragment.surveyResults.weight_before = s.toString().removeChars()
-            surveyFragment.updateNextButton()
-        }
-    }
-
-    override fun onResume() {
-        super.onResume()
         if (isPreparing){
             tvWeightBeforePregnancy.visibility = View.GONE
             flWeightBeforePregnancy.visibility = View.GONE
@@ -48,6 +28,27 @@ class Page4Fragment(val surveyFragment: SurveyFragment, var isPreparing: Boolean
             tvWeightBeforePregnancy.visibility = View.VISIBLE
             flWeightBeforePregnancy.visibility = View.VISIBLE
             etWeightBefore.visibility = View.VISIBLE
+        }
+
+        etHeight.mask = "999cm"
+        etHeight.inputType = InputType.TYPE_CLASS_NUMBER
+        etHeight.addTextChangedListener { s ->
+            surveyFragment.surveyResults.height = s.toString().removeChars()
+            surveyFragment.updateNextButton()
+        }
+
+        etWeight.mask = "999kg"
+        etWeight.inputType = InputType.TYPE_CLASS_NUMBER
+        etWeight.addTextChangedListener { s ->
+            surveyFragment.surveyResults.weight = s.toString().removeChars()
+            surveyFragment.updateNextButton()
+        }
+
+        etWeightBefore.mask = "999kg"
+        etWeightBefore.inputType = InputType.TYPE_CLASS_NUMBER
+        etWeightBefore.addTextChangedListener { s ->
+            surveyFragment.surveyResults.weight_before = s.toString().removeChars()
+            surveyFragment.updateNextButton()
         }
     }
 }

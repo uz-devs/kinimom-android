@@ -20,7 +20,7 @@ import java.util.*
  * Created by abduaziz on 8/13/21 at 9:04 PM.
  */
 
-class Page3Fragment(val surveyFragment: SurveyFragment) :
+class Page3Fragment(val surveyFragment: SurveyFragment, val isPreparing: Boolean = false) :
     Fragment(R.layout.fragment_login_survey_3), Page3View {
 
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
@@ -32,6 +32,14 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         super.onViewCreated(view, savedInstanceState)
         presenter = Page3Presenter(this)
         appComponent.inject(presenter)
+
+        if (isPreparing){
+            tvSurveyPage3Title.text = getString(R.string.you_are_preparing_for_pregnancy)
+            tvSurveyPage3TitleHint.visibility = View.VISIBLE
+        }else{
+            tvSurveyPage3Title.text = getString(R.string.give_a_birth_to_a_healthy_baby)
+            tvSurveyPage3TitleHint.visibility = View.GONE
+        }
 
         etNickname.addTextChangedListener { s ->
             presenter.validateNickname(s.toString())
@@ -83,7 +91,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.updateNextButton()
 
         tvCheckNicknameStatus.text = getString(R.string.error_user_nickname_contraints)
-        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
     }
 
     override fun showNicknameUnavailable(invalidNickname: String) {
@@ -94,7 +102,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.updateNextButton()
 
         tvCheckNicknameStatus.text = getString(R.string.error_unavailable_nickname)
-        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.gray))
+        tvCheckNicknameStatus.setTextColor(ContextCompat.getColor(requireContext(), R.color.red))
 
         disableCheckNicknameButton()
     }

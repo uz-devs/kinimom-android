@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="vertical">
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="28dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -65,8 +62,8 @@
                 android:clickable="true"
                 android:gravity="center"
                 android:lineSpacingExtra="8sp"
-                android:text="2021년 06월 30일"
-                android:textColor="@color/gray"
+                android:hint="2021년 06월 30일"
+                android:textColor="@color/black"
                 android:textSize="16sp" />
 
         </FrameLayout>
@@ -128,16 +125,11 @@
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:digits="0123456789"
-                android:hint="5일"
+                android:hint="6일"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
         </FrameLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
 
     </LinearLayout>
 

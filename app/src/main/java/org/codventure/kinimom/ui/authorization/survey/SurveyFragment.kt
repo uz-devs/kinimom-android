@@ -32,7 +32,7 @@ class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
         Page3Fragment(this), Page4Fragment(this))
     lateinit var adapter: SurveyPagerAdapter
 
-    private val pagesPreparing = arrayListOf(Page1Fragment(this), Page3Fragment(this),
+    private val pagesPreparing = arrayListOf(Page1Fragment(this), Page3Fragment(this, true),
         Page4Fragment(this, true), PreparingPage4Fragment(this))
     lateinit var adapterPreparing: SurveyPagerAdapter
 

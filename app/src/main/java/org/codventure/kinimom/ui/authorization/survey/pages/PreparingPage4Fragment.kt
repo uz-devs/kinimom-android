@@ -2,6 +2,7 @@ package org.codventure.kinimom.ui.authorization.survey.pages
 
 import android.app.DatePickerDialog
 import android.os.Bundle
+import android.text.InputType
 import android.view.View
 import android.widget.DatePicker
 import androidx.core.content.ContextCompat
@@ -23,17 +24,24 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // set date to today
+        val calendar = Calendar.getInstance()
+        calendar.timeInMillis = System.currentTimeMillis()
+        tvLastMenstrualPeriod.hint = "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${calendar.get(Calendar.DAY_OF_MONTH)}일"
+
         tvLastMenstrualPeriod.setOnClickListener {
             openDatePicker()
         }
 
         etMenstrualCycle.mask = "999일"
+        etMenstrualCycle.inputType = InputType.TYPE_CLASS_NUMBER
         etMenstrualCycle.addTextChangedListener {s ->
             surveyFragment.surveyResults.period_cycle = s.toString().removeChars()
             surveyFragment.updateNextButton()
         }
 
         etMenstrualPeriod.mask = "999일"
+        etMenstrualPeriod.inputType = InputType.TYPE_CLASS_NUMBER
         etMenstrualPeriod.addTextChangedListener {s ->
             surveyFragment.surveyResults.period_term = s.toString().removeChars()
             surveyFragment.updateNextButton()
@@ -46,7 +54,6 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
         surveyFragment.updateNextButton()
 
         tvLastMenstrualPeriod.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
-        tvLastMenstrualPeriod.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 
     private fun openDatePicker() {

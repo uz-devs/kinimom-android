@@ -15,10 +15,10 @@
 
     <string name="error_social_login_failed">소셜 로그인에 실패했습니다. 나중에 다시 시도.</string>
     <string name="next">다음</string>
-    <string name="are_you_pregnant">소중한 아기를 품고 계신가요? 혹은 준비 중이신가요?</string>
+    <string name="are_you_pregnant">소중한 아기를 품고 계신가요?\n혹은 준비 중이신가요?</string>
     <string name="i_have_a_baby_in_my_womb">뱃속에 아기가 있어요.</string>
     <string name="i_am_getting_ready">준비 중이에요.</string>
-    <string name="when_is_the_expected_date_of_ur_baby">임신을 축하드려요!🎉 아기와 언제 만나게 될 예정인가요?</string>
+    <string name="when_is_the_expected_date_of_ur_baby">임신을 축하드려요!🎉\n아기와 언제 만나게 될 예정인가요?</string>
     <string name="plz_enter_the_expected_date">출산 예정일을 입력해 주세요.</string>
     <string name="default_expected_date">예시 : 2030년 12월 12일</string>
     <string name="give_a_birth_to_a_healthy_baby">280일 동안 \n 태아 영양 프로그램으로 \n 건강한 아기 출산하세요!</string>
@@ -37,7 +37,7 @@
     <string name="error_unavailable_nickname">이미 있는 닉네임일 경우 중복된 닉네임입니다.</string>
 
     <string name="error_internet_connection">인터넷 연결 문제가 있습니다. 나중에 다시 시도하세요.</string>
-    <string name="shall_we_start_taking_care_of_your_health">나에게 알맞은 건강관리를 시작해볼까요?</string>
+    <string name="shall_we_start_taking_care_of_your_health">나에게 알맞은 건강관리를\n시작해볼까요?</string>
     <string name="diet_managment_is_the_most_important">아기와 엄마의 건강을 위해서는 식사관리가 가장 중요해요!</string>
     <string name="key">키</string>
     <string name="plz_enter_your_height">키를 입력해 주세요.</string>
@@ -67,4 +67,6 @@
     <string name="last_menstrual_period">마지막 생리종료일(최근)</string>
     <string name="menstrual_cycle">생리 주기</string>
     <string name="menstrual_period">생리 기간</string>
+    <string name="smart_and_healthy_prepare_before_pregnancy">똑똑하고 건강한 아이\n임신 전부터 준비하세요.</string>
+    <string name="you_are_preparing_for_pregnancy">임신을 계획하고 계시군요!</string>
 </resources>

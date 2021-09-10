@@ -4,7 +4,9 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -36,6 +38,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
     private lateinit var mOAuthLoginModule: OAuthLogin // naver login module
     private lateinit var mOAuthLoginHandler: OAuthLoginHandler // naver login handler
 
+    @SuppressLint("ClickableViewAccessibility")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter = LoginPresenter(this)
@@ -62,6 +65,23 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                     toast("Facebook login error")
                 }
             })
+
+        llFacebookLogin.setOnTouchListener { view, motionEvent ->
+            when(motionEvent.action){
+                MotionEvent.ACTION_DOWN -> {
+                    llFacebookLogin.setBackgroundResource(R.drawable.login_button_background_facebook_enabled)
+                    tvFacebookLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                    false
+                }
+                MotionEvent.ACTION_UP -> {
+                    llFacebookLogin.setBackgroundResource(R.drawable.login_button_background)
+                    tvFacebookLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    false
+                }
+                else -> false
+            }
+        }
+
         llFacebookLogin.setOnClickListener {
             disableLoginButtons()
             LoginManager.getInstance().logInWithReadPermissions(
@@ -135,6 +155,21 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                 }
             }
         }
+        llNaverLogin.setOnTouchListener { view, motionEvent ->
+            when(motionEvent.action){
+                MotionEvent.ACTION_DOWN -> {
+                    llNaverLogin.setBackgroundResource(R.drawable.login_button_background_naver_enabled)
+                    tvNaverLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
+                    false
+                }
+                MotionEvent.ACTION_UP -> {
+                    llNaverLogin.setBackgroundResource(R.drawable.login_button_background)
+                    tvNaverLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+                    false
+                }
+                else -> false
+            }
+        }
         llNaverLogin.setOnClickListener {
             disableLoginButtons()
             mOAuthLoginModule.startOauthLoginActivity(activity, mOAuthLoginHandler)
@@ -142,6 +177,19 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
         // endregion
 
         // region Kakao login
+        llKakaoLogin.setOnTouchListener { view, motionEvent ->
+            when(motionEvent.action){
+                MotionEvent.ACTION_DOWN -> {
+                    llKakaoLogin.setBackgroundResource(R.drawable.login_button_background_kakao_enabled)
+                    false
+                }
+                MotionEvent.ACTION_UP -> {
+                    llKakaoLogin.setBackgroundResource(R.drawable.login_button_background)
+                    false
+                }
+                else -> false
+            }
+        }
         llKakaoLogin.setOnClickListener {
             if (activity != null){
                 disableLoginButtons()
