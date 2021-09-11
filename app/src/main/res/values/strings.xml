@@ -74,4 +74,5 @@
     <string name="see_less">덜 보여</string>
     <string name="like">좋아요</string>
     <string name="comment">댓글쓰기</string>
+    <string name="post">게시글</string>
 </resources>

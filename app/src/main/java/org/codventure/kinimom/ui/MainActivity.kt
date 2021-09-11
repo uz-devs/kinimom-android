@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.commit
 import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.R
+import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.interactors.GetCommunities
 import org.codventure.kinimom.core.interactors.SignUp
 import org.codventure.kinimom.framework.di.ApplicationComponent
@@ -20,6 +21,7 @@ import org.codventure.kinimom.ui.authorization.agreement.AgreementFragment
 import org.codventure.kinimom.ui.authorization.login.LoginFragment
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import org.codventure.kinimom.ui.main.MainFragment
+import org.codventure.kinimom.ui.main.tabs.community.detail.CommunityDetailFragment
 import org.codventure.kinimom.ui.splash.SplashFragment
 import javax.inject.Inject
 
@@ -107,6 +109,14 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             replace(R.id.fragment_container_view, MainFragment())
+        }
+    }
+
+    fun openCommunityDetail(community: Community) {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            addToBackStack("CommunityDetailFragment")
+            add(R.id.fragment_container_view, CommunityDetailFragment(community))
         }
     }
 
