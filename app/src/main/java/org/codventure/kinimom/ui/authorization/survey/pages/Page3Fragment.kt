@@ -1,9 +1,11 @@
 package org.codventure.kinimom.ui.authorization.survey.pages
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
 import android.widget.DatePicker
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -134,6 +136,7 @@ class Page3Fragment(val surveyFragment: SurveyFragment, val isPreparing: Boolean
         val calendar = Calendar.getInstance()
         val dialog = DatePickerDialog(
             requireContext(),
+            android.app.AlertDialog.THEME_HOLO_LIGHT,
             DatePickerDialog.OnDateSetListener() { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
                 setSelectedDate(year, monthOfYear+1, dayOfMonth)
             },
@@ -141,6 +144,17 @@ class Page3Fragment(val surveyFragment: SurveyFragment, val isPreparing: Boolean
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        dialog.setOnShowListener {
+            dialog.getButton(Dialog.BUTTON_NEGATIVE).apply {
+                (layoutParams as LinearLayout.LayoutParams).weight = 0f
+                visibility = View.GONE
+            }
+            dialog.getButton(Dialog.BUTTON_POSITIVE).apply {
+                setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                text = getString(R.string.confirm)
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+        }
         dialog.show()
     }
 

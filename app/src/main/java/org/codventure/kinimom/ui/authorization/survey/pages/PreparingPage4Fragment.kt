@@ -1,10 +1,12 @@
 package org.codventure.kinimom.ui.authorization.survey.pages
 
 import android.app.DatePickerDialog
+import android.app.Dialog
 import android.os.Bundle
 import android.text.InputType
 import android.view.View
 import android.widget.DatePicker
+import android.widget.LinearLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -27,7 +29,10 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
         // set date to today
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
-        tvLastMenstrualPeriod.hint = "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${calendar.get(Calendar.DAY_OF_MONTH)}일"
+        tvLastMenstrualPeriod.hint =
+            "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${
+                calendar.get(Calendar.DAY_OF_MONTH)
+            }일"
 
         tvLastMenstrualPeriod.setOnClickListener {
             openDatePicker()
@@ -35,14 +40,14 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
 
         etMenstrualCycle.mask = "999일"
         etMenstrualCycle.inputType = InputType.TYPE_CLASS_NUMBER
-        etMenstrualCycle.addTextChangedListener {s ->
+        etMenstrualCycle.addTextChangedListener { s ->
             surveyFragment.surveyResults.period_cycle = s.toString().removeChars()
             surveyFragment.updateNextButton()
         }
 
         etMenstrualPeriod.mask = "999일"
         etMenstrualPeriod.inputType = InputType.TYPE_CLASS_NUMBER
-        etMenstrualPeriod.addTextChangedListener {s ->
+        etMenstrualPeriod.addTextChangedListener { s ->
             surveyFragment.surveyResults.period_term = s.toString().removeChars()
             surveyFragment.updateNextButton()
         }
@@ -60,13 +65,25 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
         val calendar = Calendar.getInstance()
         val dialog = DatePickerDialog(
             requireContext(),
+            android.app.AlertDialog.THEME_HOLO_LIGHT,
             DatePickerDialog.OnDateSetListener() { view: DatePicker, year: Int, monthOfYear: Int, dayOfMonth: Int ->
-                setSelectedDate(year, monthOfYear+1, dayOfMonth)
+                setSelectedDate(year, monthOfYear + 1, dayOfMonth)
             },
             calendar.get(Calendar.YEAR),
             calendar.get(Calendar.MONTH),
             calendar.get(Calendar.DAY_OF_MONTH)
         )
+        dialog.setOnShowListener {
+            dialog.getButton(Dialog.BUTTON_NEGATIVE).apply {
+                (layoutParams as LinearLayout.LayoutParams).weight = 0f
+                visibility = View.GONE
+            }
+            dialog.getButton(Dialog.BUTTON_POSITIVE).apply {
+                setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.white))
+                text = getString(R.string.confirm)
+                setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
+            }
+        }
         dialog.show()
     }
 }
