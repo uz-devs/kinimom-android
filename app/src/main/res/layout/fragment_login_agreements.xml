@@ -69,7 +69,8 @@
                 android:src="@drawable/login_btn_agreement_check_disable" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:lineSpacingExtra="6sp"
@@ -78,15 +79,11 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <ImageView
                 android:id="@+id/ivTermsOfServiceMore"
-                android:layout_width="20dp"
+                android:layout_width="56dp"
                 android:layout_height="20dp"
+                android:scaleType="fitEnd"
                 android:src="@drawable/login_btn_agreement_more" />
 
         </LinearLayout>
@@ -107,7 +104,8 @@
                 android:src="@drawable/login_btn_agreement_check_disable" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:lineSpacingExtra="6sp"
@@ -116,14 +114,10 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <ImageView
                 android:id="@+id/ivPrivacyPolicyMore"
-                android:layout_width="20dp"
+                android:layout_width="56dp"
+                android:scaleType="fitEnd"
                 android:layout_height="20dp"
                 android:src="@drawable/login_btn_agreement_more" />
 
@@ -146,7 +140,8 @@
                 android:src="@drawable/login_btn_agreement_check_disable" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:lineSpacingExtra="6sp"
@@ -155,14 +150,10 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <ImageView
                 android:id="@+id/ivPersonalInfoCollectionMore"
-                android:layout_width="20dp"
+                android:layout_width="56dp"
+                android:scaleType="fitEnd"
                 android:layout_height="20dp"
                 android:src="@drawable/login_btn_agreement_more" />
 
@@ -175,6 +166,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="16dp"
+            android:gravity="center_vertical"
             android:background="?selectableItemBackground"
             android:paddingVertical="8dp">
 
@@ -185,7 +177,8 @@
                 android:src="@drawable/login_btn_agreement_check_disable" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:lineSpacingExtra="6sp"
@@ -194,14 +187,10 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <ImageView
                 android:id="@+id/ivConsentToUsePersonalInfoMore"
-                android:layout_width="20dp"
+                android:layout_width="56dp"
+                android:scaleType="fitEnd"
                 android:layout_height="20dp"
                 android:src="@drawable/login_btn_agreement_more" />
 
@@ -225,7 +214,8 @@
                 android:src="@drawable/login_btn_agreement_check_disable" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="4dp"
                 android:lineSpacingExtra="6sp"
@@ -234,18 +224,13 @@
                 android:textSize="13sp"
                 android:textStyle="normal" />
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="1dp"
-                android:layout_weight="1"/>
-
             <ImageView
                 android:id="@+id/ivConsentToThirdPartyMore"
-                android:layout_width="20dp"
+                android:layout_width="56dp"
+                android:scaleType="fitEnd"
                 android:layout_height="20dp"
                 android:src="@drawable/login_btn_agreement_more" />
-
-
+            
         </LinearLayout>
 
     </LinearLayout>

@@ -48,6 +48,31 @@ class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
             }
             (activity as MainActivity).openSurveyScreen()
         }
+
+        ivTermsOfServiceMore.setOnClickListener {
+            val agreementFragment = AgreementDetailFragment()
+            agreementFragment.show(childFragmentManager, "AgreementDetailFragment")
+        }
+
+        ivPrivacyPolicyMore.setOnClickListener {
+            val agreementFragment = AgreementDetailFragment()
+            agreementFragment.show(childFragmentManager, "AgreementDetailFragment")
+        }
+
+        ivPersonalInfoCollectionMore.setOnClickListener {
+            val agreementFragment = AgreementDetailFragment()
+            agreementFragment.show(childFragmentManager, "AgreementDetailFragment")
+        }
+
+        ivConsentToUsePersonalInfoMore.setOnClickListener {
+            val agreementFragment = AgreementDetailFragment()
+            agreementFragment.show(childFragmentManager, "AgreementDetailFragment")
+        }
+
+        ivConsentToThirdPartyMore.setOnClickListener {
+            val agreementFragment = AgreementDetailFragment()
+            agreementFragment.show(childFragmentManager, "AgreementDetailFragment")
+        }
     }
 
     private fun toggleAgreements() {

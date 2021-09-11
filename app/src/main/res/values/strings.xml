@@ -10,7 +10,7 @@
     <string name="required_terms_of_service">[필수] 서비스 이용 약관</string>
     <string name="required_privacy_policy">[필수] 개인정보처리방침</string>
     <string name="required_personal_info_collection_and_usage_agreement">[필수] 개인정보 수집 및 이용동의</string>
-    <string name="required_consent_to_use_personal_info">[필수] 개인정보 수집 및 이용동의</string>
+    <string name="required_consent_to_use_personal_info">[필수] 개인정보의 수집목적, 항목, 방법, 처리에 관한 사항</string>
     <string name="required_consent_to_third_party_provision_of_accredation">[필수] 인정보 제3자 제공에 대한 동의</string>
 
     <string name="error_social_login_failed">소셜 로그인에 실패했습니다. 나중에 다시 시도.</string>
