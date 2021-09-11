@@ -481,11 +481,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingTop="30dp"
-                android:paddingHorizontal="16dp"
                 android:paddingBottom="16dp">
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:paddingHorizontal="16dp"
                     android:layout_height="wrap_content"
                     android:textStyle="bold"
                     android:textSize="24sp"
@@ -493,159 +493,14 @@
                     android:lineSpacingExtra="3sp"
                     android:text="커뮤니티 BEST" />
 
-                <LinearLayout
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/gvBestCommunities"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
+                    android:numColumns="2"
+                    android:padding="8dp"
+                    android:layout_height="wrap_content">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginRight="10dp"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="160dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="@color/black"
-                            android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="14sp"
-                            android:textColor="#999999"
-                            android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="160dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="@color/black"
-                            android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="14sp"
-                            android:textColor="#999999"
-                            android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..." />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginRight="10dp"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="160dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="@color/black"
-                            android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="14sp"
-                            android:textColor="#999999"
-                            android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..." />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        android:layout_marginLeft="10dp"
-                        android:layout_height="wrap_content">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="160dp"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/home_sample_img_best_01" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="bold"
-                            android:textSize="16sp"
-                            android:layout_marginTop="12dp"
-                            android:textColor="@color/black"
-                            android:lineSpacingExtra="8sp"
-                            android:text="요리왕찐천재abc1" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textStyle="normal"
-                            android:textSize="14sp"
-                            android:textColor="#999999"
-                            android:lineSpacingExtra="6sp"
-                            android:text="골목식당 전문가의 제자..." />
-
-                    </LinearLayout>
-
-                </LinearLayout>
+                </androidx.recyclerview.widget.RecyclerView>
 
             </LinearLayout>
 

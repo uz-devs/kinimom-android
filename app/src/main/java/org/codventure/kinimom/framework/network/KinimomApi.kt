@@ -44,4 +44,10 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: TestLastOneRequest
     ): Call<TestLastOneResponse>
+
+    @POST("api/bestCommunities")
+    fun getBestCommunities(
+        @Header("Authorization") Authorization: String,
+        @Body body: BestCommunitiesRequest
+    ): Call<BestCommunitiesResponse>
 }

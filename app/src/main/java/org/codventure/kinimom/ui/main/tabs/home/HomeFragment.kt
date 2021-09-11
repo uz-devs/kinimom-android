@@ -1,17 +1,22 @@
 package org.codventure.kinimom.ui.main.tabs.home
 
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
-import kotlinx.android.synthetic.main.fragment_login_survey_3.*
+import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_main_home.*
 import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.R
+import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.framework.di.ApplicationComponent
+import java.net.URI
 import java.util.*
 import kotlin.math.max
 import kotlin.math.min
@@ -34,6 +39,7 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
 
         presenter.initDates()
         presenter.fetchLastScores()
+        presenter.fetchBestCommunities()
     }
 
     override fun setHusbandWifeScores(husbandScore: Int, wifeScore: Int) {
@@ -108,5 +114,10 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
             if (t2 is TextView)
                 t2.text = getString(R.string.date_format, weekdays[i].second)
         }
+    }
+
+    override fun setCommunities(communities: ArrayList<Community>) {
+        gvBestCommunities.layoutManager = GridLayoutManager(requireContext(), 2)
+        gvBestCommunities.adapter = BestCommunitiesAdapter(communities = communities)
     }
 }

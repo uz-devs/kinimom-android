@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/llCommunityBest"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/ivCommunityUserImage"
+        android:layout_width="match_parent"
+        android:layout_height="152dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/home_sample_img_best_01" />
+
+    <TextView
+        android:id="@+id/tvCommunityUserNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/black"
+        android:lineSpacingExtra="8sp"
+        android:text="요리왕찐천재abc1" />
+
+    <TextView
+        android:id="@+id/tvCommunityContent"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_height="wrap_content"
+        android:textStyle="normal"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:textSize="14sp"
+        android:textColor="#999999"
+        android:lineSpacingExtra="6sp"
+        android:text="골목식당 전문가의 제자..." />
+
+</LinearLayout>

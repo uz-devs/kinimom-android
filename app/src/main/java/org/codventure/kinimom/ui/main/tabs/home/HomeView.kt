@@ -1,5 +1,6 @@
 package org.codventure.kinimom.ui.main.tabs.home
 
+import org.codventure.kinimom.core.domain.Community
 import java.util.ArrayList
 
 interface HomeView {
@@ -8,4 +9,6 @@ interface HomeView {
 
     fun setMonth(year: Int, month: Int)
     fun setWeekdays(weekdays: ArrayList<Pair<Int, Int>>)
+
+    fun setCommunities(communities: ArrayList<Community>)
 }
