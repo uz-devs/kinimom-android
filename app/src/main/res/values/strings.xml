@@ -70,4 +70,8 @@
     <string name="smart_and_healthy_prepare_before_pregnancy">똑똑하고 건강한 아이\n임신 전부터 준비하세요.</string>
     <string name="you_are_preparing_for_pregnancy">임신을 계획하고 계시군요!</string>
     <string name="confirm">확인</string>
+    <string name="see_more">자세히 보기</string>
+    <string name="see_less">덜 보여</string>
+    <string name="like">좋아요</string>
+    <string name="comment">댓글쓰기</string>
 </resources>

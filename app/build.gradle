@@ -100,4 +100,7 @@ dependencies {
     implementation "com.kakao.sdk:v2-story:2.6.0" // Kakao Story
     implementation "com.kakao.sdk:v2-link:2.6.0" //  Message (Kakao Link)
     implementation "com.kakao.sdk:v2-navi:2.6.0" // Kakao Navi
+
+    // circle indicator
+    implementation 'me.relex:circleindicator:2.1.6'
 }

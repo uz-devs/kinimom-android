@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.fragment_main_community.*
 import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.R
@@ -29,6 +30,16 @@ class CommunityFragment : Fragment(R.layout.fragment_main_community), CommunityV
         appComponent.inject(presenter)
 
         rvCommunityPosts.layoutManager = LinearLayoutManager(context)
+
+        rvCommunityPosts.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if (dy > 0) {
+                    fabNewPost.hide()
+                } else {
+                    fabNewPost.show()
+                }
+            }
+        })
     }
 
     override fun onResume() {

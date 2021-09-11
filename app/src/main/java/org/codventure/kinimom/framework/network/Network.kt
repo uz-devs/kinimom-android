@@ -49,7 +49,11 @@ class Network
     override fun getCommunityList(body: CommunityListRequest): ArrayList<Community>? {
         val token = settings.getToken()
         val response = service.communityList(token, body).execute()
-        return response.body()?.community_list
+        return response.body()?.community_list?.apply {
+            this.forEach {
+                it.isOwnedByUser = it.user_id == settings.getUserId().toString()
+            }
+        }
     }
 
     override fun getCommunity(body: CommunityDetailRequest): Community? {
@@ -58,6 +62,7 @@ class Network
         return response.body()?.community_one?.apply {
             this.comments = response.body()?.comments
                 ?: arrayListOf() // <- had to do this, becoz of poor design choice in JSON response
+            this.isOwnedByUser = this.user_id == settings.getUserId().toString()
         }
     }
 

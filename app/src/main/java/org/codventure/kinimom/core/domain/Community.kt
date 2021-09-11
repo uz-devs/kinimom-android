@@ -29,7 +29,38 @@ class Community(
     val like_it: String?,
 
     // comments are not included in real JSON response, binded later, see framework/network/Network.kt
-    var comments: ArrayList<Comment> = arrayListOf()
-){
+    var comments: ArrayList<Comment> = arrayListOf(),
+
+    var isOwnedByUser: Boolean = false
+) {
     fun userLikesIt() = like_it != "FALSE"
+
+    fun images(): List<String> {
+        val res = arrayListOf<String>()
+        if (!image_1_url.isNullOrBlank()) {
+            res.add(image_1_url)
+        }
+        if (!image_2_url.isNullOrBlank()) {
+            res.add(image_2_url)
+        }
+        if (!image_3_url.isNullOrBlank()) {
+            res.add(image_3_url)
+        }
+        if (!image_4_url.isNullOrBlank()) {
+            res.add(image_4_url)
+        }
+        if (!image_5_url.isNullOrBlank()) {
+            res.add(image_5_url)
+        }
+        return res
+    }
+
+    fun imageRatio(): String {
+        if (!image_ratio1.isNullOrBlank()) return image_ratio1
+        if (!image_ratio2.isNullOrBlank()) return image_ratio2
+        if (!image_ratio3.isNullOrBlank()) return image_ratio3
+        if (!image_ratio4.isNullOrBlank()) return image_ratio4
+        if (!image_ratio5.isNullOrBlank()) return image_ratio5
+        return "1"
+    }
 }
