@@ -305,7 +305,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="#f9f9f9"
                 android:orientation="vertical">
 
                 <TextView
@@ -350,43 +350,17 @@
                         android:layout_margin="28dp"
                         android:src="@drawable/home_ready_img_main_graph_06" />
 
-                    <ProgressBar
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/ivWifeScore"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent"
-                        android:indeterminateOnly="false"
-                        android:padding="6dp"
-                        android:scaleX="1.45"
-                        android:scaleY="1.45"
-                        android:progressDrawable="@drawable/home_pregnancy_progress_circle"
-                        android:progress="350"
-                        android:max="360"
-                        android:rotation="-85" />
+                        android:src="@drawable/wife_progress_8" />
 
-                    <ProgressBar
-                        android:id="@+id/pbHusband"
-                        android:layout_width="match_parent"
+                    <ImageView
+                        android:id="@+id/ivHusbandScore"
+                        android:layout_width="250dp"
                         android:layout_height="match_parent"
-                        android:indeterminateOnly="false"
-                        android:padding="6dp"
-                        android:scaleX="1.45"
-                        android:scaleY="1.45"
-                        android:progressDrawable="@drawable/custom_circular_progressbar_husband"
-                        android:progress="120"
-                        android:rotation="-30"
-                        android:max="360" />
-
-                    <ProgressBar
-                        android:id="@+id/pbWife"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:indeterminateOnly="false"
-                        android:padding="6dp"
-                        android:scaleX="1.45"
-                        android:scaleY="1.45"
-                        android:progressDrawable="@drawable/custom_circular_progressbar_wife"
-                        android:progress="60"
-                        android:rotation="90"
-                        android:max="360" />
+                        android:src="@drawable/husband_progress_9" />
 
                     <TextView
                         android:id="@+id/tvScore"
