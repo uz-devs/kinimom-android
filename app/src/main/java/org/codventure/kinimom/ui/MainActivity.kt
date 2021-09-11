@@ -43,16 +43,16 @@ class MainActivity : AppCompatActivity() {
         appComponent.inject(this)
 
         if (savedInstanceState == null) {
-            if (settings.isUserLoggedIn()){
+            if (settings.isUserLoggedIn()) {
                 openSplashScreen()
                 refreshTokenAndOpenMain()
-            }else{
+            } else {
                 openSocialLoginScreen()
             }
         }
     }
 
-    private fun refreshTokenAndOpenMain(){
+    private fun refreshTokenAndOpenMain() {
         val socialUser = settings.getSocialLoginCredentials()
         doAsync {
             val user = signUp(
@@ -66,16 +66,16 @@ class MainActivity : AppCompatActivity() {
                 gender = ""
             )
             uiThread {
-                if (user?.shouldFillUpSurvey() == false){
+                if (user?.shouldFillUpSurvey() == false) {
                     openMainScreen()
-                }else{
+                } else {
                     openSocialLoginScreen()
                 }
             }
         }
     }
 
-    fun openSplashScreen(){
+    fun openSplashScreen() {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             replace(R.id.fragment_container_view, SplashFragment())

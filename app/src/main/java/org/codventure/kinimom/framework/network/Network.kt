@@ -2,6 +2,7 @@ package org.codventure.kinimom.framework.network
 
 import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.core.data.request.*
+import org.codventure.kinimom.core.data.response.BestCommunitiesResponse
 import org.codventure.kinimom.core.data.response.TestLastOneResponse
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
@@ -69,6 +70,12 @@ class Network
     override fun getTestLastOne(body: TestLastOneRequest): TestLastOneResponse? {
         val token = settings.getToken()
         val response = service.getTestLastOne(token, body).execute()
+        return response.body()
+    }
+
+    override fun getBestCommunities(body: BestCommunitiesRequest): BestCommunitiesResponse? {
+        val token = settings.getToken()
+        val response = service.getBestCommunities(token, body).execute()
         return response.body()
     }
 }

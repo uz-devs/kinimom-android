@@ -42,4 +42,10 @@ class KinimomApiService
         Authorization: String,
         body: TestLastOneRequest
     ): Call<TestLastOneResponse> = api.getTestLastOne(Authorization, body)
+
+    override fun getBestCommunities(
+        Authorization: String,
+        body: BestCommunitiesRequest
+    ): Call<BestCommunitiesResponse> = api.getBestCommunities(Authorization, body)
+
 }
