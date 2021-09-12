@@ -14,13 +14,9 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.framework.extension.userAvatar
 
-class CommunitiesAdapter(private val communities: List<Community>) :
-    RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
-
+class CommunitiesAdapter(private val communities: List<Community>, private val onClickCommunity: (community: Community) -> Unit) : RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false)
-        )
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {

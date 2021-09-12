@@ -1,5 +1,6 @@
 package org.codventure.kinimom.framework.di
 
+import org.codventure.kinimom.ui.main.tabs.community.detail.CommunityDetailPresenter
 import org.codventure.kinimom.ui.authorization.survey.pages.Page3Presenter
 import org.codventure.kinimom.ui.main.tabs.community.CommunityPresenter
 import org.codventure.kinimom.ui.authorization.survey.SurveyPresenter
