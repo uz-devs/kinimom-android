@@ -207,6 +207,7 @@
             android:background="#eeeeee" />
 
         <LinearLayout
+            android:id="@+id/llCommunityComment"
             android:layout_width="0dp"
             android:layout_height="44dp"
             android:layout_weight="1"

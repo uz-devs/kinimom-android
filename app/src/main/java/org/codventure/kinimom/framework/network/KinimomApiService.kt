@@ -44,6 +44,8 @@ class KinimomApiService
         body: BasicRequest
     ): Call<BestCommunitiesResponse> = api.getBestCommunities(Authorization, body)
 
+    override fun comment(Authorization: String, body: CommentRequest) = api.comment(Authorization, body)
+
     override fun getMenstruation(
         Authorization: String,
         body: GetMenstruationRequest

@@ -45,8 +45,8 @@ class CommunityFragment : Fragment(R.layout.fragment_main_community), CommunityV
     }
 
     override fun showCommunities(communities: List<Community>) {
-        rvCommunityPosts.adapter = CommunitiesAdapter(communities, { community ->
-            (activity as MainActivity).openCommunityDetail(community)
+        rvCommunityPosts.adapter = CommunitiesAdapter(communities, { community, wannaComment->
+            (activity as MainActivity).openCommunityDetail(community, wannaComment)
         })
     }
 

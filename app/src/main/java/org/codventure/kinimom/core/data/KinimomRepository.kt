@@ -2,9 +2,11 @@ package org.codventure.kinimom.core.data
 
 import org.codventure.kinimom.core.data.request.*
 import org.codventure.kinimom.core.data.response.BestCommunitiesResponse
+import org.codventure.kinimom.core.data.response.CommentResponse
 import org.codventure.kinimom.core.data.response.GetAllNoticeResponse
 import org.codventure.kinimom.core.data.response.GetMenstruationResponse
 import org.codventure.kinimom.core.data.response.TestLastOneResponse
+import org.codventure.kinimom.core.domain.Comment
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
 
@@ -18,4 +20,5 @@ interface KinimomRepository {
     fun getBestCommunities(body: BasicRequest): BestCommunitiesResponse?
     fun getMenstruation(body: GetMenstruationRequest): GetMenstruationResponse?
     fun getAllNotice(body: BasicRequest): GetAllNoticeResponse?
+    fun comment(body: CommentRequest): Comment?
 }

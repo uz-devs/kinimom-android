@@ -1,20 +1,34 @@
 package org.codventure.kinimom.ui.main.tabs.community
 
+import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import me.relex.circleindicator.CircleIndicator3
 import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.framework.extension.userAvatar
 
-class CommunitiesAdapter(private val communities: List<Community>, private val onClickCommunity: (community: Community) -> Unit) : RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
+/**
+ * Created by abduaziz on 8/29/21 at 11:46 PM.
+ */
+
+class CommunitiesAdapter(private val communities: List<Community>,
+                         private val onClickCommunity: (community: Community, wannaComment: Boolean) -> Unit) :
+    RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false))
     }
@@ -51,15 +65,21 @@ class CommunitiesAdapter(private val communities: List<Community>, private val o
         private val ivLikeIt = itemView.findViewById<ImageView>(R.id.ivCommunityLikeIt)
         private val tvLikeIt = itemView.findViewById<TextView>(R.id.tvCommunityLike)
 
+        private val llCommunityComment = itemView.findViewById<LinearLayout>(R.id.llCommunityComment)
         private val ivCommunityComment = itemView.findViewById<ImageView>(R.id.ivCommunityComment)
         private val tvCommunityComment = itemView.findViewById<TextView>(R.id.tvCommunityComment)
 
         fun bind(community: Community) {
             itemView.setOnClickListener {
-                onClickCommunity(community)
+                onClickCommunity(community, false)
             }
 
-            ivCommunityUserImage.setImageResource(community.nickname.userAvatar())
+            llCommunityComment.setOnClickListener {
+                onClickCommunity(community, true)
+            }
+
+
+            setProfileImage(community.profile_image, community.nickname.userAvatar())
             ivCommunityMenu.visibility = if (community.isOwnedByUser) View.VISIBLE else View.GONE
 
             tvNickname.text = community.nickname ?: ""
@@ -119,6 +139,32 @@ class CommunitiesAdapter(private val communities: List<Community>, private val o
                 tvLikeIt.setTextColor(ContextCompat.getColor(itemView.context, R.color.gray))
             }
         }
-    }
 
+        private fun setProfileImage(url: String?, userAvatar: Int){
+            if (url.isNullOrBlank()){
+                ivCommunityUserImage.setImageResource(userAvatar)
+                return
+            }
+            Glide.with(itemView.context).load(url).listener(object : RequestListener<Drawable> {
+                override fun onLoadFailed(
+                    e: GlideException?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    ivCommunityUserImage.setImageResource(userAvatar)
+                    return true
+                }
+                override fun onResourceReady(
+                    resource: Drawable?,
+                    model: Any?,
+                    target: Target<Drawable>?,
+                    dataSource: DataSource?,
+                    isFirstResource: Boolean
+                ): Boolean {
+                    return false
+                }
+            }).into(ivCommunityUserImage)
+        }
+    }
 }

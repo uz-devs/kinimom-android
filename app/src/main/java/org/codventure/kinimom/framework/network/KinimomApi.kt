@@ -47,6 +47,12 @@ internal interface KinimomApi {
         @Body body: BasicRequest
     ): Call<BestCommunitiesResponse>
 
+    @POST("api/communityCommentSave")
+    fun comment(
+        @Header("Authorization") Authorization: String,
+        @Body body: CommentRequest
+    ): Call<CommentResponse>
+
     @POST("api/getMenstruation")
     fun getMenstruation(
         @Header("Authorization") Authorization: String,
