@@ -84,7 +84,7 @@
                 android:layout_width="56dp"
                 android:layout_height="20dp"
                 android:scaleType="fitEnd"
-                android:src="@drawable/login_btn_agreement_more" />
+                android:src="@drawable/arrow_right" />
 
         </LinearLayout>
 
@@ -119,7 +119,7 @@
                 android:layout_width="56dp"
                 android:scaleType="fitEnd"
                 android:layout_height="20dp"
-                android:src="@drawable/login_btn_agreement_more" />
+                android:src="@drawable/arrow_right" />
 
 
         </LinearLayout>
@@ -155,7 +155,7 @@
                 android:layout_width="56dp"
                 android:scaleType="fitEnd"
                 android:layout_height="20dp"
-                android:src="@drawable/login_btn_agreement_more" />
+                android:src="@drawable/arrow_right" />
 
 
         </LinearLayout>
@@ -192,7 +192,7 @@
                 android:layout_width="56dp"
                 android:scaleType="fitEnd"
                 android:layout_height="20dp"
-                android:src="@drawable/login_btn_agreement_more" />
+                android:src="@drawable/arrow_right" />
 
 
         </LinearLayout>
@@ -229,7 +229,7 @@
                 android:layout_width="56dp"
                 android:scaleType="fitEnd"
                 android:layout_height="20dp"
-                android:src="@drawable/login_btn_agreement_more" />
+                android:src="@drawable/arrow_right" />
             
         </LinearLayout>
 

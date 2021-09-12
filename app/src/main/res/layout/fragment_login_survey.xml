@@ -2,7 +2,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,7 +16,7 @@
             android:padding="16dp"
             android:background="?selectableItemBackground"
             android:clickable="true"
-            android:src="@drawable/login_btn_top_back"/>
+            android:src="@drawable/arrow_back" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -32,33 +31,34 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/login_btn_topslide_on"/>
+                android:src="@drawable/login_btn_topslide_on" />
 
             <ImageView
                 android:id="@+id/indicator2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/login_btn_topslide_off"/>
+                android:src="@drawable/login_btn_topslide_off" />
+
             <ImageView
                 android:id="@+id/indicator3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/login_btn_topslide_off"/>
+                android:src="@drawable/login_btn_topslide_off" />
 
             <ImageView
                 android:id="@+id/indicator4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/login_btn_topslide_off"/>
+                android:src="@drawable/login_btn_topslide_off" />
 
         </LinearLayout>
 
         <ImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:padding="16dp"/>
+            android:padding="16dp" />
 
     </LinearLayout>
 
@@ -69,7 +69,7 @@
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/viewPager"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/tvNext"
