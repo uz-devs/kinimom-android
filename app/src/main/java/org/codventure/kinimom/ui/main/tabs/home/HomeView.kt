@@ -11,4 +11,5 @@ interface HomeView {
     fun setWeekdays(weekdays: ArrayList<Pair<Int, Int>>)
 
     fun setCommunities(communities: ArrayList<Community>)
+    fun setMenstruation(menstruation: String)
 }
