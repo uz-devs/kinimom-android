@@ -2,7 +2,9 @@ package org.codventure.kinimom.core.data
 
 import org.codventure.kinimom.core.data.request.*
 import org.codventure.kinimom.core.data.response.BestCommunitiesResponse
+import org.codventure.kinimom.core.data.response.CommentResponse
 import org.codventure.kinimom.core.data.response.TestLastOneResponse
+import org.codventure.kinimom.core.domain.Comment
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
 
@@ -18,4 +20,5 @@ interface KinimomRepository {
     fun getCommunity(body: CommunityDetailRequest): Community?
     fun getTestLastOne(body: TestLastOneRequest): TestLastOneResponse?
     fun getBestCommunities(body: BestCommunitiesRequest): BestCommunitiesResponse?
+    fun comment(body: CommentRequest): Comment?
 }

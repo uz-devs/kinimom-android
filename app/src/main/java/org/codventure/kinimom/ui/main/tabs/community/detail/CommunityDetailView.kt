@@ -1,5 +1,6 @@
 package org.codventure.kinimom.ui.main.tabs.community.detail
 
+import org.codventure.kinimom.core.domain.Comment
 import org.codventure.kinimom.core.domain.Community
 
 /**
@@ -11,4 +12,6 @@ interface CommunityDetailView {
     fun showCommunity(community: Community)
     fun showLoadingError()
 
+    fun addNewComment(comment: Comment)
+    fun showSendCommentError()
 }

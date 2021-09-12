@@ -5,13 +5,20 @@ package org.codventure.kinimom.core.domain
  */
 
 class Comment(
-    val id: String?,
-    val nickname: String?,
-    val icon: String?,
-    val profile_image: String?,
-    val community_id: String?,
-    val user_id: String?,
-    val comment: String?,
-    val like_qty: String?
-    // TODO: 8/28/21 there are other things here
-)
+    var id: String?,
+    var nickname: String?,
+    var icon: String?,
+    var profile_image: String?,
+    var community_id: String?,
+    var user_id: String?,
+    var comment: String?,
+    var like_qty: String?,
+    var like_it: String?,
+    var created_at: String?,
+    var updated_at: String?,
+
+
+    var isOwnedByUser: Boolean = false
+){
+    fun userLikesIt() = like_it != "FALSE"
+}

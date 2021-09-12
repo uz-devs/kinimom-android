@@ -6,7 +6,6 @@ import org.codventure.kinimom.R
  * Created by abduaziz on 8/20/21 at 4:12 PM.
  */
 
-
 fun String.removeChars(): String{
     var res = ""
     for (c in this)

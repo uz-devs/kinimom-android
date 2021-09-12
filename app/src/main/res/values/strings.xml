@@ -75,4 +75,8 @@
     <string name="like">좋아요</string>
     <string name="comment">댓글쓰기</string>
     <string name="post">게시글</string>
+    <string name="comments">댓글</string>
+    <string name="no_comments">댓글이 없습니다</string>
+    <string name="comment_hint">댓글을 입력하세요.</string>
+    <string name="error_sending_comment">댓글을 게시할 수 없습니다. 나중에 다시 시도하세요.</string>
 </resources>

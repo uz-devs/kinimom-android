@@ -112,11 +112,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun openCommunityDetail(community: Community) {
+    fun openCommunityDetail(community: Community, wannaComment: Boolean) {
         supportFragmentManager.commit {
             setReorderingAllowed(true)
             addToBackStack("CommunityDetailFragment")
-            add(R.id.fragment_container_view, CommunityDetailFragment(community))
+            add(R.id.fragment_container_view, CommunityDetailFragment(community, wannaComment))
         }
     }
 

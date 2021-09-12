@@ -4,6 +4,7 @@ import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.core.data.request.*
 import org.codventure.kinimom.core.data.response.BestCommunitiesResponse
 import org.codventure.kinimom.core.data.response.TestLastOneResponse
+import org.codventure.kinimom.core.domain.Comment
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
 import org.codventure.kinimom.framework.settings.Settings
@@ -77,5 +78,13 @@ class Network
         val token = settings.getToken()
         val response = service.getBestCommunities(token, body).execute()
         return response.body()
+    }
+
+    override fun comment(body: CommentRequest): Comment? {
+        val token = settings.getToken()
+        val response = service.comment(token, body).execute()
+        return response.body()?.data?.apply {
+            isOwnedByUser = this.user_id == settings.getUserId().toString()
+        }
     }
 }

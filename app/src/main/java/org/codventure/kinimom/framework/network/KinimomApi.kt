@@ -50,4 +50,10 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: BestCommunitiesRequest
     ): Call<BestCommunitiesResponse>
+
+    @POST("api/communityCommentSave")
+    fun comment(
+        @Header("Authorization") Authorization: String,
+        @Body body: CommentRequest
+    ): Call<CommentResponse>
 }

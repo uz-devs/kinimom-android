@@ -2,13 +2,13 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
-    android:clickable="true">
+    android:clickable="true"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="56dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -16,26 +16,26 @@
             android:id="@+id/ivBack"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:padding="16dp"
             android:background="?selectableItemBackground"
             android:clickable="true"
-            android:src="@drawable/login_btn_top_back"/>
+            android:padding="16dp"
+            android:src="@drawable/login_btn_top_back" />
 
         <TextView
             android:layout_width="0dp"
-            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textSize="17sp"
-            android:textColor="#555555"
-            android:lineSpacingExtra="8sp"
+            android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:text="@string/post"/>
+            android:lineSpacingExtra="8sp"
+            android:text="@string/post"
+            android:textColor="#555555"
+            android:textSize="17sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:padding="16dp"/>
+            android:padding="16dp" />
 
     </LinearLayout>
 
@@ -46,8 +46,10 @@
         android:background="@color/light_gray" />
 
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,8 +65,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
                 android:layout_marginBottom="10dp"
                 android:orientation="horizontal">
 
@@ -115,17 +117,17 @@
                 android:id="@+id/rvCommunityDetailImages"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingHorizontal="16dp"
-                android:layout_marginBottom="10dp"/>
+                android:layout_marginBottom="10dp"
+                android:paddingHorizontal="16dp" />
 
             <TextView
                 android:id="@+id/tvCommunityDetailContent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
                 android:ellipsize="end"
                 android:lineSpacingExtra="8sp"
                 android:maxLength="2001"
-                android:layout_marginHorizontal="16dp"
                 android:text="키니케어키니케어 키니케어 키니 키니케어키니케어 키니케어 키니키니케어키니케케어키니케어 키니케어 키니키니케어키니케어 키니케어 키케어...키니케어 키니키니케어키니케어 키니케어 키케어..."
                 android:textColor="#666666"
                 android:textSize="16sp"
@@ -161,12 +163,76 @@
                 android:layout_marginTop="16dp"
                 android:background="@color/light_gray" />
 
-        </LinearLayout>
+            <TextView
+                android:id="@+id/tvCommentsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:lineSpacingExtra="6sp"
+                android:text="@string/comments"
+                android:textColor="#666666"
+                android:textSize="14sp"
+                android:textStyle="normal" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:clipToPadding="true"
+                android:paddingBottom="100dp" />
+
+        </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical">
 
+        <!--Divider-->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_gray" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp">
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:maxLength="500"
+                android:hint="@string/comment_hint"
+                android:maxLines="3" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rounded_rectangle_dark_gray"
+                android:gravity="center"
+                android:lineSpacingExtra="8sp"
+                android:paddingHorizontal="12dp"
+                android:text="등록"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>
