@@ -10,7 +10,7 @@ import org.json.JSONObject
 import javax.inject.Inject
 
 class LoginPresenter(var view: LoginView) {
-
+    // region inject
     @Inject
     lateinit var signUp: SignUp
 
@@ -19,6 +19,7 @@ class LoginPresenter(var view: LoginView) {
 
     @Inject
     lateinit var settings: Settings
+    // endregion
 
     fun signUpWithFacebook(profile: Profile) {
         view.disableLoginButtons()
