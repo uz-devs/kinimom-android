@@ -58,6 +58,9 @@ class Network
         return response.body()?.community_one?.apply {
             this.comments = response.body()?.comments
                 ?: arrayListOf() // <- had to do this, becoz of poor design choice in JSON response
+            this.comments.forEach { c ->
+                c.isOwnedByUser = c.user_id == settings.getUserId().toString()
+            }
             this.isOwnedByUser = this.user_id == settings.getUserId().toString()
         }
     }
