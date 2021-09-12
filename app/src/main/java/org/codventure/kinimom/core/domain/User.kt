@@ -1,9 +1,5 @@
 package org.codventure.kinimom.core.domain
 
-/**
- * Created by abduaziz on 7/13/21 at 11:00 PM.
- */
-
 class User(
     var id: Long = 0,
     var status: String? = "",

@@ -1,9 +1,5 @@
 package org.codventure.kinimom.core.data.request
 
-/**
- * Created by abduaziz on 8/17/21 at 7:16 PM.
- */
-
 class UserInfoSaveRequest(
     val user_id: Long,
     val icon: String?,

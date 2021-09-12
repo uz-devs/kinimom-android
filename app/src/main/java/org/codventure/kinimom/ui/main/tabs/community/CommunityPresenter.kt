@@ -5,20 +5,16 @@ import org.codventure.kinimom.framework.extension.doAsync
 import org.codventure.kinimom.framework.extension.uiThread
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 8/29/21 at 11:57 PM.
- */
-
 class CommunityPresenter(val view: CommunityView) {
 
     @Inject
     lateinit var getCommunities: GetCommunities
 
-    fun fetchCommunities(){
+    fun fetchCommunities() {
         doAsync {
             val communityList = getCommunities()
             uiThread {
-                if (communityList == null){
+                if (communityList == null) {
                     view.showCommunitiesFetchError()
                     return@uiThread
                 }

@@ -14,9 +14,6 @@ import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
 import org.codventure.kinimom.ui.authorization.survey.pages.*
 
-/**
- * Created by abduaziz on 8/12/21 at 3:02 PM.
- */
 
 class SurveyFragment : Fragment(R.layout.fragment_login_survey), SurveyView {
 

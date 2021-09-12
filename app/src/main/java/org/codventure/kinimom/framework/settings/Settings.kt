@@ -5,14 +5,10 @@ import org.codventure.kinimom.core.domain.SocialUser
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Created by abduaziz on 8/16/21 at 6:49 PM.
- */
-
 @Singleton
 class Settings
 @Inject constructor(private val context: Context) {
-
+    // region keys
     private val USER_ID = "user_id"
     private val USER_TOKEN = "token"
 
@@ -21,6 +17,7 @@ class Settings
     private val SOCIAL_NAME = "SOCIAL_NAME"
     private val SOCIAL_PHONE = "SOCIAL_PHONE"
     private val SOCIAL_PHOTO = "SOCIAL_PHOTO"
+    // endregion
 
     fun isUserLoggedIn(): Boolean {
         if (getToken().isBlank()) return false

@@ -7,10 +7,6 @@ import org.codventure.kinimom.core.data.response.TestLastOneResponse
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.core.domain.User
 
-/**
- * Created by abduaziz on 7/17/21 at 9:03 PM.
- */
-
 interface KinimomRepository {
     fun signUp(request: SignUpRequest): User?
     fun checkNickname(body: CheckNicknameRequest): Boolean?

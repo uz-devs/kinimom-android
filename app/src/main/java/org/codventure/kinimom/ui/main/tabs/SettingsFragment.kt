@@ -8,10 +8,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.settings.Prefs
 import org.codventure.kinimom.ui.MainActivity
 
-/**
- * Created by abduaziz on 8/28/21 at 4:27 PM.
- */
-
 class SettingsFragment : Fragment(R.layout.fragment_main_settings) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

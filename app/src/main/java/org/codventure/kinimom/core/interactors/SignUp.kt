@@ -4,10 +4,6 @@ import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.core.data.request.SignUpRequest
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 7/13/21 at 11:04 PM.
- */
-
 class SignUp
 @Inject constructor(private val kinimomRepository: KinimomRepository) {
     operator fun invoke( social_login_type: String,

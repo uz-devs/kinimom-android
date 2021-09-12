@@ -11,9 +11,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
 
-/**
- * Created by abduaziz on 8/12/21 at 2:40 PM.
- */
 
 class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
 

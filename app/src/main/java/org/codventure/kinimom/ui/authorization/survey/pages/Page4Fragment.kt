@@ -11,9 +11,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.extension.removeChars
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 
-/**
- * Created by abduaziz on 8/13/21 at 9:04 PM.
- */
 
 class Page4Fragment(val surveyFragment: SurveyFragment, var isPreparing: Boolean = false) :
     Fragment(R.layout.fragment_login_survey_4) {

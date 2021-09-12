@@ -8,5 +8,4 @@ class TestResultWife(
     val love: String?,
     val created_at: String?,
     val updated_at: String?
-) {
-}
+)

@@ -1,21 +1,16 @@
 package org.codventure.kinimom.framework.di
 
-import android.content.Context
-import dagger.Module
-import dagger.Provides
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import org.codventure.kinimom.AndroidApplication
-import org.codventure.kinimom.BuildConfig
 import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.framework.network.Network
-import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import org.codventure.kinimom.AndroidApplication
+import okhttp3.logging.HttpLoggingInterceptor
+import android.content.Context
 import javax.inject.Singleton
-
-/**
- * Created by abduaziz on 7/17/21 at 10:16 PM.
- */
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import dagger.Provides
+import dagger.Module
 
 @Module
 class ApplicationModule(private val androidApplication: AndroidApplication) {
@@ -26,10 +21,8 @@ class ApplicationModule(private val androidApplication: AndroidApplication) {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit{
-        val client = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply {
-            level = HttpLoggingInterceptor.Level.BODY
-        }).build()
+    fun provideRetrofit(): Retrofit {
+        val client = OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }).build()
         return Retrofit.Builder()
             .baseUrl("https://kinicaremom.net/")
             .client(client)
@@ -39,7 +32,7 @@ class ApplicationModule(private val androidApplication: AndroidApplication) {
 
     @Provides
     @Singleton
-    fun provideKinimomRepository(source: Network): KinimomRepository{
+    fun provideKinimomRepository(source: Network): KinimomRepository {
         return source
     }
 }

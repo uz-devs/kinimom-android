@@ -11,10 +11,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
 import java.util.*
 
-/**
- * Created by abduaziz on 8/29/21 at 11:46 PM.
- */
-
 class BestCommunitiesAdapter(private val communities: List<Community>) : RecyclerView.Adapter<BestCommunitiesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

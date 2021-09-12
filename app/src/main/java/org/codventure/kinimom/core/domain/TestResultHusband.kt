@@ -7,5 +7,4 @@ class TestResultHusband(
     val results: String?,
     val created_at: String?,
     val updated_at: String?
-) {
-}
+)
