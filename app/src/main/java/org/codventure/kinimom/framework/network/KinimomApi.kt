@@ -7,10 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
 
-/**
- * Created by abduaziz on 7/17/21 at 10:19 PM.
- */
-
 internal interface KinimomApi {
     @POST("socialLogin")
     fun signUp(@Body body: SignUpRequest): Call<SignUpResponse>
@@ -42,13 +38,13 @@ internal interface KinimomApi {
     @POST("api/testLastOne")
     fun getTestLastOne(
         @Header("Authorization") Authorization: String,
-        @Body body: TestLastOneRequest
+        @Body body: BasicRequest
     ): Call<TestLastOneResponse>
 
     @POST("api/bestCommunities")
     fun getBestCommunities(
         @Header("Authorization") Authorization: String,
-        @Body body: BestCommunitiesRequest
+        @Body body: BasicRequest
     ): Call<BestCommunitiesResponse>
 
     @POST("api/communityCommentSave")
@@ -56,4 +52,16 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: CommentRequest
     ): Call<CommentResponse>
+
+    @POST("api/getMenstruation")
+    fun getMenstruation(
+        @Header("Authorization") Authorization: String,
+        @Body body: GetMenstruationRequest
+    ): Call<GetMenstruationResponse>
+
+    @POST("api/getAllNotice")
+    fun getAllNotice(
+        @Header("Authorization") Authorization: String,
+        @Body body: BasicRequest
+    ): Call<GetAllNoticeResponse>
 }

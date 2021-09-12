@@ -11,28 +11,19 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
 
-/**
- * Created by abduaziz on 8/12/21 at 2:40 PM.
- */
 
 class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
-
     lateinit var lls: Array<LinearLayout> // checkbox parents where user clicks
     lateinit var ivs: Array<ImageView> // checkboxes
-
     lateinit var agreed: Array<Boolean>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         lls = arrayOf(llTermsOfService, llPrivacyPolicy, llPersonalInfoCollection, llConsentToUsePersonalInfo, llConsentToThirdParty)
         ivs = arrayOf(ivTermsOfService, ivPrivacyPolicy, ivPersonalInfoCollection, ivConsentToUsePersonalInfo, ivConsentToThirdParty)
-
         agreed = arrayOf(false, false, false, false, false)
 
-        llAgreeToAll.setOnClickListener {
-            toggleAgreements()
-        }
+        llAgreeToAll.setOnClickListener { toggleAgreements() }
 
         lls.forEachIndexed { index, linearLayout ->
             linearLayout.setOnClickListener {
@@ -42,7 +33,7 @@ class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
         }
 
         tvNext.setOnClickListener {
-            if (agreed.contains(false)){
+            if (agreed.contains(false)) {
                 toast(getString(R.string.plz_agree_to_terms_and_conditions))
                 return@setOnClickListener
             }
@@ -89,7 +80,7 @@ class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
     }
 
     private fun updateAgreementCheckboxes() {
-        for (i in 0 until agreed.size) {
+        for (i in agreed.indices) {
             if (agreed[i]) {
                 ivs[i].setImageResource(R.drawable.login_btn_agreement_allcheck_enable)
             } else {

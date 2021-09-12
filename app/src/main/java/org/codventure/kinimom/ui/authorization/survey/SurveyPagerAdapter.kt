@@ -8,9 +8,6 @@ import org.codventure.kinimom.ui.authorization.survey.pages.Page2Fragment
 import org.codventure.kinimom.ui.authorization.survey.pages.Page3Fragment
 import org.codventure.kinimom.ui.authorization.survey.pages.Page4Fragment
 
-/**
- * Created by abduaziz on 8/13/21 at 9:08 PM.
- */
 
 class SurveyPagerAdapter(fragment: Fragment, val pages: List<Fragment>) : FragmentStateAdapter(fragment) {
 

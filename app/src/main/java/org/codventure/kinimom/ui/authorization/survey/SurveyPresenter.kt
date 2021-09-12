@@ -6,9 +6,6 @@ import org.codventure.kinimom.framework.extension.uiThread
 import org.codventure.kinimom.framework.settings.Settings
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 8/17/21 at 7:28 PM.
- */
 
 class SurveyPresenter(val view: SurveyView) {
 

@@ -30,9 +30,7 @@ class CommunitiesAdapter(private val communities: List<Community>,
     RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false)
-        )
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_community, parent, false))
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -94,17 +92,17 @@ class CommunitiesAdapter(private val communities: List<Community>,
                 viewPager2Parent.visibility = View.VISIBLE
                 viewPager2.adapter = CommunityGalleryAdapter(imageUrls)
                 circleIndicator.setViewPager(viewPager2)
-                if (imageUrls.size == 1){
+                if (imageUrls.size == 1) {
                     tvCommunityGalleryImageCount.visibility = View.GONE
                     circleIndicator.visibility = View.GONE
-                }else{
+                } else {
                     tvCommunityGalleryImageCount.visibility = View.VISIBLE
                     circleIndicator.visibility = View.VISIBLE
                 }
-                viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+                viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {
                         super.onPageSelected(position)
-                        tvCommunityGalleryImageCount.text = " ${position+1} / ${imageUrls.size}"
+                        tvCommunityGalleryImageCount.text = " ${position + 1} / ${imageUrls.size}"
                     }
                 })
             }
@@ -169,5 +167,4 @@ class CommunitiesAdapter(private val communities: List<Community>,
             }).into(ivCommunityUserImage)
         }
     }
-
 }

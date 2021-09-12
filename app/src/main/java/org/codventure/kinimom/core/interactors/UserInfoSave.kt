@@ -5,10 +5,6 @@ import org.codventure.kinimom.core.data.request.UserInfoSaveRequest
 import org.codventure.kinimom.ui.authorization.survey.SurveyResults
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 8/17/21 at 7:22 PM.
- */
-
 class UserInfoSave
 @Inject constructor(
     private val repository: KinimomRepository

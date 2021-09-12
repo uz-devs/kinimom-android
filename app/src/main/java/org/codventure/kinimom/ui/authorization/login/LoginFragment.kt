@@ -46,28 +46,27 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
 
         // region Facebook login
         callbackManager = CallbackManager.Factory.create()
-        LoginManager.getInstance()
-            .registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-                override fun onSuccess(result: LoginResult?) {
-                    enableLoginButtons()
-                    val profile = Profile.getCurrentProfile()
-                    if (profile != null)
-                        presenter.signUpWithFacebook(profile)
-                }
+        LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+            override fun onSuccess(result: LoginResult?) {
+                enableLoginButtons()
+                val profile = Profile.getCurrentProfile()
+                if (profile != null)
+                    presenter.signUpWithFacebook(profile)
+            }
 
-                override fun onCancel() {
-                    enableLoginButtons()
-                    toast("Facebook login canceled")
-                }
+            override fun onCancel() {
+                enableLoginButtons()
+                toast("Facebook login canceled")
+            }
 
-                override fun onError(error: FacebookException?) {
-                    enableLoginButtons()
-                    toast("Facebook login error")
-                }
-            })
+            override fun onError(error: FacebookException?) {
+                enableLoginButtons()
+                toast("Facebook login error")
+            }
+        })
 
-        llFacebookLogin.setOnTouchListener { view, motionEvent ->
-            when(motionEvent.action){
+        llFacebookLogin.setOnTouchListener { _, motionEvent ->
+            when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
                     llFacebookLogin.setBackgroundResource(R.drawable.login_button_background_facebook_enabled)
                     tvFacebookLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -127,21 +126,16 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                                 presenter.signUpWithNaver(
                                     mapOf(
                                         "id" to res.getJSONObject("response").getString("id"),
-                                        "nickname" to res.getJSONObject("response")
-                                            .getString("nickname"),
-                                        "profile_image" to res.getJSONObject("response")
-                                            .getString("profile_image"),
+                                        "nickname" to res.getJSONObject("response").getString("nickname"),
+                                        "profile_image" to res.getJSONObject("response").getString("profile_image"),
                                         "age" to res.getJSONObject("response").getString("age"),
                                         "gender" to res.getJSONObject("response").getString("gender"),
                                         "email" to res.getJSONObject("response").getString("email"),
                                         "mobile" to res.getJSONObject("response").getString("mobile"),
-                                        "mobile_e164" to res.getJSONObject("response")
-                                            .getString("mobile_e164"),
+                                        "mobile_e164" to res.getJSONObject("response").getString("mobile_e164"),
                                         "name" to res.getJSONObject("response").getString("name"),
-                                        "birthday" to res.getJSONObject("response")
-                                            .getString("birthday"),
-                                        "birthyear" to res.getJSONObject("response")
-                                            .getString("birthyear")
+                                        "birthday" to res.getJSONObject("response").getString("birthday"),
+                                        "birthyear" to res.getJSONObject("response").getString("birthyear")
                                     )
                                 )
                         }
@@ -156,7 +150,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
             }
         }
         llNaverLogin.setOnTouchListener { view, motionEvent ->
-            when(motionEvent.action){
+            when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
                     llNaverLogin.setBackgroundResource(R.drawable.login_button_background_naver_enabled)
                     tvNaverLogin.setTextColor(ContextCompat.getColor(requireContext(), R.color.white))
@@ -178,7 +172,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
 
         // region Kakao login
         llKakaoLogin.setOnTouchListener { view, motionEvent ->
-            when(motionEvent.action){
+            when (motionEvent.action) {
                 MotionEvent.ACTION_DOWN -> {
                     llKakaoLogin.setBackgroundResource(R.drawable.login_button_background_kakao_enabled)
                     false
@@ -191,7 +185,7 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
             }
         }
         llKakaoLogin.setOnClickListener {
-            if (activity != null){
+            if (activity != null) {
                 disableLoginButtons()
                 KakaoSdk.init(requireActivity(), getString(R.string.KAKAO_NATIVE_APP_KEY))
                 UserApiClient.instance.loginWithKakaoTalk(requireActivity()) { token, error ->
@@ -204,21 +198,15 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginView {
                         UserApiClient.instance.loginWithKakaoAccount(requireActivity()) { _token, _error ->
                             enableLoginButtons()
                             if (_error != null)
-                                Log.e(
-                                    "LoginFragment",
-                                    "Kakao web login failure : ${_error.message}"
-                                )
+                                Log.e("LoginFragment", "Kakao web login failure : ${_error.message}")
                             else if (_token != null) {
-                                Log.e(
-                                    "LoginFragment",
-                                    "Kakao web login success : ${_token.accessToken}"
-                                )
+                                Log.e("LoginFragment", "Kakao web login success : ${_token.accessToken}")
 
                                 disableLoginButtons()
                                 UserApiClient.instance.me { user, error ->
                                     enableLoginButtons()
                                     if (user != null)
-                                        // get profile with _token
+                                    // get profile with _token
                                         presenter.signUpWithKakao(
                                             mapOf(
                                                 "id" to user.id.toString(),

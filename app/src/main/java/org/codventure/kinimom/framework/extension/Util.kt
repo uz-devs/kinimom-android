@@ -2,11 +2,7 @@ package org.codventure.kinimom.framework.extension
 
 import org.codventure.kinimom.R
 
-/**
- * Created by abduaziz on 8/20/21 at 4:12 PM.
- */
-
-fun String.removeChars(): String{
+fun String.removeChars(): String {
     var res = ""
     for (c in this)
         if (c.isDigit())
@@ -14,9 +10,9 @@ fun String.removeChars(): String{
     return res
 }
 
-fun String?.userAvatar(): Int{
+fun String?.userAvatar(): Int {
     if (this == null || this.isBlank()) return R.drawable.community_profile_img_01
-    return when(this.first().toInt() % 10){
+    return when (this.first().toInt() % 10) {
         1 -> R.drawable.community_profile_img_01
         2 -> R.drawable.community_profile_img_02
         3 -> R.drawable.community_profile_img_03

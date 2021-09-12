@@ -21,10 +21,6 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
-/**
- * Created by abduaziz on 8/28/21 at 4:27 PM.
- */
-
 class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         (activity?.application as AndroidApplication).appComponent
@@ -38,8 +34,10 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
         appComponent.inject(presenter)
 
         presenter.initDates()
+        presenter.fetchMenstruation()
         presenter.fetchLastScores()
         presenter.fetchBestCommunities()
+        presenter.fetchAllNotices()
     }
 
     override fun setHusbandWifeScores(husbandScore: Int, wifeScore: Int) {
@@ -119,5 +117,14 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
     override fun setCommunities(communities: ArrayList<Community>) {
         gvBestCommunities.layoutManager = GridLayoutManager(requireContext(), 2)
         gvBestCommunities.adapter = BestCommunitiesAdapter(communities = communities)
+    }
+
+    override fun setMenstruation(menstruation: String) {
+        tvPeriod.text = menstruation
+    }
+
+    override fun setNoticesBadge(noticesCount: Int) {
+        tvNoticesBadge.text = noticesCount.toString()
+        tvNoticesBadge.visibility = if (noticesCount > 0) View.VISIBLE else View.INVISIBLE
     }
 }

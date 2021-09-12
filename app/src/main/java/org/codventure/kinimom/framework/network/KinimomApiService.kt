@@ -7,10 +7,6 @@ import retrofit2.Retrofit
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Created by abduaziz on 7/17/21 at 10:21 PM.
- */
-
 @Singleton
 class KinimomApiService
 @Inject constructor(retrofit: Retrofit) : KinimomApi {
@@ -40,14 +36,23 @@ class KinimomApiService
 
     override fun getTestLastOne(
         Authorization: String,
-        body: TestLastOneRequest
+        body: BasicRequest
     ): Call<TestLastOneResponse> = api.getTestLastOne(Authorization, body)
 
     override fun getBestCommunities(
         Authorization: String,
-        body: BestCommunitiesRequest
+        body: BasicRequest
     ): Call<BestCommunitiesResponse> = api.getBestCommunities(Authorization, body)
 
     override fun comment(Authorization: String, body: CommentRequest) = api.comment(Authorization, body)
 
+    override fun getMenstruation(
+        Authorization: String,
+        body: GetMenstruationRequest
+    ): Call<GetMenstruationResponse> = api.getMenstruation(Authorization, body)
+
+    override fun getAllNotice(
+        Authorization: String,
+        body: BasicRequest
+    ): Call<GetAllNoticeResponse> = api.getAllNotice(Authorization, body)
 }

@@ -8,9 +8,6 @@ import kotlinx.android.synthetic.main.fragment_login_survey_1.*
 import org.codventure.kinimom.R
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 
-/**
- * Created by abduaziz on 8/13/21 at 9:02 PM.
- */
 
 class Page1Fragment(val surveyFragment: SurveyFragment) : Fragment(R.layout.fragment_login_survey_1) {
 

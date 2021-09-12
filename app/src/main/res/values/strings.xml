@@ -49,6 +49,13 @@
     <string name="daily">데일리</string>
     <string name="community">커뮤니티</string>
     <string name="settings">설정</string>
+    <string name="preferences">환경설정</string>
+    <string name="notice">공지사항</string>
+    <string name="notification_settings">알림 설정</string>
+    <string name="terms_of_use">이용약관</string>
+    <string name="config_guide">출처 및 서비스 구성안내</string>
+    <string name="version_info">버전 정보 및 업데이트</string>
+    <string name="opensource_license">오픈소스 라이선스</string>
 
     <string name="month_format">%1$d년 %2$02d월</string>
     <string-array name="weekdays">

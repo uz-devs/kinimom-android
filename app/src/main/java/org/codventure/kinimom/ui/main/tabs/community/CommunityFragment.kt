@@ -13,10 +13,6 @@ import org.codventure.kinimom.framework.di.ApplicationComponent
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
 
-/**
- * Created by abduaziz on 8/28/21 at 4:27 PM.
- */
-
 class CommunityFragment : Fragment(R.layout.fragment_main_community), CommunityView {
 
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {

@@ -1,11 +1,6 @@
 package org.codventure.kinimom.core.data.response
 
-import com.google.gson.annotations.SerializedName
 import org.codventure.kinimom.core.domain.User
-
-/**
- * Created by abduaziz on 7/13/21 at 10:55 PM.
- */
 
 class SignUpResponse(
     val status: Boolean,
