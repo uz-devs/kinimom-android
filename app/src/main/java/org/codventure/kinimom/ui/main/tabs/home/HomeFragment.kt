@@ -34,6 +34,7 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
         appComponent.inject(presenter)
 
         presenter.initDates()
+        presenter.fetchMenstruation()
         presenter.fetchLastScores()
         presenter.fetchBestCommunities()
     }
@@ -115,5 +116,9 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
     override fun setCommunities(communities: ArrayList<Community>) {
         gvBestCommunities.layoutManager = GridLayoutManager(requireContext(), 2)
         gvBestCommunities.adapter = BestCommunitiesAdapter(communities = communities)
+    }
+
+    override fun setMenstruation(menstruation: String) {
+        tvPeriod.text = menstruation
     }
 }

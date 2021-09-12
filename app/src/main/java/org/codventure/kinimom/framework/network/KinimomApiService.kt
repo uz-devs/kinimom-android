@@ -43,4 +43,9 @@ class KinimomApiService
         Authorization: String,
         body: BestCommunitiesRequest
     ): Call<BestCommunitiesResponse> = api.getBestCommunities(Authorization, body)
+    
+    override fun getMenstruation(
+        Authorization: String,
+        body: GetMenstruationRequest
+    ): Call<GetMenstruationResponse> = api.getMenstruation(Authorization, body)
 }

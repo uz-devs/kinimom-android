@@ -8,10 +8,10 @@ import androidx.fragment.app.commit
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.fragment_main.*
 import org.codventure.kinimom.R
-import org.codventure.kinimom.ui.main.tabs.community.CommunityFragment
 import org.codventure.kinimom.ui.main.tabs.DailyFragment
-import org.codventure.kinimom.ui.main.tabs.home.HomeFragment
 import org.codventure.kinimom.ui.main.tabs.SettingsFragment
+import org.codventure.kinimom.ui.main.tabs.community.CommunityFragment
+import org.codventure.kinimom.ui.main.tabs.home.HomeFragment
 
 class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNavigationItemSelectedListener {
     // region variables

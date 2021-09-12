@@ -9,8 +9,6 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
-import kotlinx.android.synthetic.main.fragment_login_survey.view.*
-import me.relex.circleindicator.CircleIndicator2
 import me.relex.circleindicator.CircleIndicator3
 import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
@@ -39,7 +37,7 @@ class CommunitiesAdapter(private val communities: List<Community>) :
             itemView.findViewById<ImageView>(R.id.ivCommunityUserImage)
         private val tvNickname = itemView.findViewById<TextView>(R.id.tvCommunityUserNickname)
         private val ivCommunityMenu = itemView.findViewById<ImageView>(R.id.ivCommunityMenu)
-        private val tvDate = itemView.findViewById<TextView>(R.id.rvCommunityDate)
+        private val tvDate = itemView.findViewById<TextView>(R.id.tvCommunityDate)
 
 
         private val viewPager2Parent = itemView.findViewById<FrameLayout>(R.id.communityViewPagerParent)
@@ -51,8 +49,8 @@ class CommunitiesAdapter(private val communities: List<Community>) :
         private val tvCommunitySeeMore = itemView.findViewById<TextView>(R.id.tvCommunitySeeMore)
 
         private val tvCommentQuantity =
-            itemView.findViewById<TextView>(R.id.tvCommunityCommentQuantity)
-        private val tvLikeQuantity = itemView.findViewById<TextView>(R.id.tvCommunityLikeQuantity)
+            itemView.findViewById<TextView>(R.id.tvCommunityCommentCount)
+        private val tvLikeQuantity = itemView.findViewById<TextView>(R.id.tvCommunityLikeCount)
 
         private val ivLikeIt = itemView.findViewById<ImageView>(R.id.ivCommunityLikeIt)
         private val tvLikeIt = itemView.findViewById<TextView>(R.id.tvCommunityLike)
@@ -61,6 +59,10 @@ class CommunitiesAdapter(private val communities: List<Community>) :
         private val tvCommunityComment = itemView.findViewById<TextView>(R.id.tvCommunityComment)
 
         fun bind(community: Community) {
+            itemView.setOnClickListener {
+                onClickCommunity(community)
+            }
+
             ivCommunityUserImage.setImageResource(community.nickname.userAvatar())
             ivCommunityMenu.visibility = if (community.isOwnedByUser) View.VISIBLE else View.GONE
 

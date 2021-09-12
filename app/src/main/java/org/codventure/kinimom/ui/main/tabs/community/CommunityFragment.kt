@@ -11,6 +11,7 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.framework.di.ApplicationComponent
 import org.codventure.kinimom.framework.extension.toast
+import org.codventure.kinimom.ui.MainActivity
 
 class CommunityFragment : Fragment(R.layout.fragment_main_community), CommunityView {
 
@@ -44,7 +45,9 @@ class CommunityFragment : Fragment(R.layout.fragment_main_community), CommunityV
     }
 
     override fun showCommunities(communities: List<Community>) {
-        rvCommunityPosts.adapter = CommunitiesAdapter(communities)
+        rvCommunityPosts.adapter = CommunitiesAdapter(communities, { community ->
+            (activity as MainActivity).openCommunityDetail(community)
+        })
     }
 
     override fun showCommunitiesFetchError() {

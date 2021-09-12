@@ -23,4 +23,5 @@ interface ApplicationComponent {
 
     fun inject(presenter: CommunityPresenter)
     fun inject(presenter: HomePresenter)
+    fun inject(presenter: CommunityDetailPresenter)
 }

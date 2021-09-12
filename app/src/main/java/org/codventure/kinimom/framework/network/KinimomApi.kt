@@ -46,4 +46,10 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: BestCommunitiesRequest
     ): Call<BestCommunitiesResponse>
+
+    @POST("api/getMenstruation")
+    fun getMenstruation(
+        @Header("Authorization") Authorization: String,
+        @Body body: GetMenstruationRequest
+    ): Call<GetMenstruationResponse>
 }
