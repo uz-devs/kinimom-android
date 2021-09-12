@@ -38,7 +38,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/rvCommunityDate"
+                android:id="@+id/tvCommunityDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:lineSpacingExtra="6sp"
@@ -133,7 +133,7 @@
             android:src="@drawable/community_ic_good_on" />
 
         <TextView
-            android:id="@+id/tvCommunityLikeQuantity"
+            android:id="@+id/tvCommunityLikeCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8sp"
@@ -149,7 +149,7 @@
             android:src="@drawable/community_ic_comment" />
 
         <TextView
-            android:id="@+id/tvCommunityCommentQuantity"
+            android:id="@+id/tvCommunityCommentCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:lineSpacingExtra="8sp"

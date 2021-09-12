@@ -14,6 +14,6 @@ class GetCommunities
 @Inject constructor(private val repository: KinimomRepository,
                     private val settings: Settings){
     operator fun invoke(offset: Int = 0): ArrayList<Community>?{
-        return repository.getCommunityList(CommunityListRequest(22, offset))
+        return repository.getCommunityList(CommunityListRequest(settings.getUserId(), offset))
     }
 }
