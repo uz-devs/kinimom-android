@@ -16,10 +16,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.core.domain.Community
 import org.codventure.kinimom.framework.extension.userAvatar
 
-/**
- * Created by abduaziz on 8/29/21 at 11:46 PM.
- */
-
 class CommunitiesAdapter(private val communities: List<Community>) :
     RecyclerView.Adapter<CommunitiesAdapter.ViewHolder>() {
 
@@ -78,17 +74,17 @@ class CommunitiesAdapter(private val communities: List<Community>) :
                 viewPager2Parent.visibility = View.VISIBLE
                 viewPager2.adapter = CommunityGalleryAdapter(imageUrls)
                 circleIndicator.setViewPager(viewPager2)
-                if (imageUrls.size == 1){
+                if (imageUrls.size == 1) {
                     tvCommunityGalleryImageCount.visibility = View.GONE
                     circleIndicator.visibility = View.GONE
-                }else{
+                } else {
                     tvCommunityGalleryImageCount.visibility = View.VISIBLE
                     circleIndicator.visibility = View.VISIBLE
                 }
-                viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
+                viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
                     override fun onPageSelected(position: Int) {
                         super.onPageSelected(position)
-                        tvCommunityGalleryImageCount.text = " ${position+1} / ${imageUrls.size}"
+                        tvCommunityGalleryImageCount.text = " ${position + 1} / ${imageUrls.size}"
                     }
                 })
             }

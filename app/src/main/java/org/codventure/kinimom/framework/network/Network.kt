@@ -9,16 +9,8 @@ import org.codventure.kinimom.core.domain.User
 import org.codventure.kinimom.framework.settings.Settings
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 7/17/21 at 9:47 PM.
- */
-
 class Network
-@Inject constructor(
-    private val service: KinimomApiService,
-    private val settings: Settings
-) : KinimomRepository {
-
+@Inject constructor(private val service: KinimomApiService, private val settings: Settings) : KinimomRepository {
     override fun signUp(request: SignUpRequest): User? {
         val response = service.signUp(request).execute()
         settings.saveUserId(response.body()?.user?.id ?: -1L)

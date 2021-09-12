@@ -21,10 +21,6 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 
-/**
- * Created by abduaziz on 8/28/21 at 4:27 PM.
- */
-
 class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
     private val appComponent: ApplicationComponent by lazy(mode = LazyThreadSafetyMode.NONE) {
         (activity?.application as AndroidApplication).appComponent

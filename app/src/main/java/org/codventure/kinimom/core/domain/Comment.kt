@@ -1,9 +1,5 @@
 package org.codventure.kinimom.core.domain
 
-/**
- * Created by abduaziz on 8/28/21 at 12:44 AM.
- */
-
 class Comment(
     val id: String?,
     val nickname: String?,

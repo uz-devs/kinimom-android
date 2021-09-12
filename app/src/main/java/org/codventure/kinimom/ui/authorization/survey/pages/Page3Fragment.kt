@@ -18,9 +18,6 @@ import org.codventure.kinimom.ui.MainActivity
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import java.util.*
 
-/**
- * Created by abduaziz on 8/13/21 at 9:04 PM.
- */
 
 class Page3Fragment(val surveyFragment: SurveyFragment, val isPreparing: Boolean = false) :
     Fragment(R.layout.fragment_login_survey_3), Page3View {

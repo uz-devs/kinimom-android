@@ -1,13 +1,11 @@
 package org.codventure.kinimom.ui.main.tabs
 
-import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.github.mikephil.charting.animation.Easing
-import com.github.mikephil.charting.components.AxisBase
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.components.YAxis
@@ -18,11 +16,6 @@ import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.interfaces.datasets.IRadarDataSet
 import kotlinx.android.synthetic.main.fragment_main_daily.*
 import org.codventure.kinimom.R
-
-
-/**
- * Created by abduaziz on 8/28/21 at 4:27 PM.
- */
 
 class DailyFragment : Fragment(R.layout.fragment_main_daily) {
 
@@ -44,7 +37,7 @@ class DailyFragment : Fragment(R.layout.fragment_main_daily) {
         xAxis.textSize = 9f
         xAxis.axisMinimum = 1F
         xAxis.axisMaximum = 5F
-        xAxis.valueFormatter = IndexAxisValueFormatter(listOf("1","2","3","4","5"))
+        xAxis.valueFormatter = IndexAxisValueFormatter(listOf("1", "2", "3", "4", "5"))
         xAxis.textColor = ContextCompat.getColor(requireContext(), R.color.black)
 
         val yAxis: YAxis = radarChart.yAxis

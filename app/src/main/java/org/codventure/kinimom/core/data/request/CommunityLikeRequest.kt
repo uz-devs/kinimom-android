@@ -1,5 +1,5 @@
 package org.codventure.kinimom.core.data.request
 
-class BestCommunitiesRequest(
+class CommunityLikeRequest(
     val user_id: Long
 )

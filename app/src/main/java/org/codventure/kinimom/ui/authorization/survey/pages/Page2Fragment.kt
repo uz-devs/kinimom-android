@@ -13,9 +13,6 @@ import org.codventure.kinimom.R
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import java.util.*
 
-/**
- * Created by abduaziz on 8/13/21 at 9:03 PM.
- */
 
 class Page2Fragment(val surveyFragment: SurveyFragment) :
     Fragment(R.layout.fragment_login_survey_2) {

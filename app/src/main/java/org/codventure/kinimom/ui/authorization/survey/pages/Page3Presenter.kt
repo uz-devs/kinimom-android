@@ -5,9 +5,6 @@ import org.codventure.kinimom.framework.extension.doAsync
 import org.codventure.kinimom.framework.extension.uiThread
 import javax.inject.Inject
 
-/**
- * Created by abduaziz on 8/16/21 at 4:08 PM.
- */
 
 class Page3Presenter(var view: Page3View) {
 

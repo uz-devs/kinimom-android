@@ -8,10 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import org.codventure.kinimom.R
 
-/**
- * Created by abduaziz on 9/12/21 at 5:17 AM.
- */
-
 class CommunityGalleryAdapter(private val images: List<String>) :
     RecyclerView.Adapter<CommunityGalleryAdapter.ViewHolder>() {
 

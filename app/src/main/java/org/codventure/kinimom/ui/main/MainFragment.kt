@@ -13,16 +13,13 @@ import org.codventure.kinimom.ui.main.tabs.DailyFragment
 import org.codventure.kinimom.ui.main.tabs.home.HomeFragment
 import org.codventure.kinimom.ui.main.tabs.SettingsFragment
 
-/**
- * Created by abduaziz on 8/13/21 at 11:37 AM.
- */
-
-class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNavigationItemSelectedListener{
+class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNavigationItemSelectedListener {
+    // region variables
     private val homeFragment = HomeFragment()
     private val dailyFragment = DailyFragment()
-    private val communityFragment =
-        CommunityFragment()
+    private val communityFragment = CommunityFragment()
     private val settingsFragment = SettingsFragment()
+    // endregion
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +28,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNa
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.menu_home -> {
                 selectTab(homeFragment)
             }
@@ -48,7 +45,7 @@ class MainFragment : Fragment(R.layout.fragment_main), BottomNavigationView.OnNa
         return true
     }
 
-    private fun selectTab(fragment: Fragment){
+    private fun selectTab(fragment: Fragment) {
         childFragmentManager.commit {
             setReorderingAllowed(true)
             replace(R.id.fragment_main_tab_container, fragment)

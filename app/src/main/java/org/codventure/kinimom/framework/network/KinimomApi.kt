@@ -7,10 +7,6 @@ import retrofit2.http.Body
 import retrofit2.http.Header
 import retrofit2.http.POST
 
-/**
- * Created by abduaziz on 7/17/21 at 10:19 PM.
- */
-
 internal interface KinimomApi {
     @POST("socialLogin")
     fun signUp(@Body body: SignUpRequest): Call<SignUpResponse>

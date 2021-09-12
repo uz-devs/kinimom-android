@@ -1,8 +1,5 @@
 package org.codventure.kinimom.ui.authorization.survey
 
-/**
- * Created by abduaziz on 8/15/21 at 4:21 PM.
- */
 class SurveyResults(
     var is_pregnant: String = "",
     var expected_date: String = "",
