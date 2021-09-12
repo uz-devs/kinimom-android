@@ -10,6 +10,7 @@ import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.ui.MainActivity
 import javax.inject.Singleton
 import dagger.Component
+import org.codventure.kinimom.ui.main.tabs.settings.SettingsPresenter
 
 @Singleton
 @Component(modules = [ApplicationModule::class])
@@ -25,4 +26,6 @@ interface ApplicationComponent {
     fun inject(presenter: CommunityPresenter)
     fun inject(presenter: HomePresenter)
     fun inject(presenter: CommunityDetailPresenter)
+
+    fun inject(presenter: SettingsPresenter)
 }

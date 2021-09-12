@@ -3,6 +3,7 @@ package org.codventure.kinimom.framework.network
 import org.codventure.kinimom.core.data.KinimomRepository
 import org.codventure.kinimom.core.data.request.*
 import org.codventure.kinimom.core.data.response.BestCommunitiesResponse
+import org.codventure.kinimom.core.data.response.GetAllNoticeResponse
 import org.codventure.kinimom.core.data.response.GetMenstruationResponse
 import org.codventure.kinimom.core.data.response.TestLastOneResponse
 import org.codventure.kinimom.core.domain.Community
@@ -60,21 +61,27 @@ class Network
         }
     }
 
-    override fun getTestLastOne(body: TestLastOneRequest): TestLastOneResponse? {
+    override fun getTestLastOne(body: BasicRequest): TestLastOneResponse? {
         val token = settings.getToken()
         val response = service.getTestLastOne(token, body).execute()
         return response.body()
     }
 
-    override fun getBestCommunities(body: BestCommunitiesRequest): BestCommunitiesResponse? {
+    override fun getBestCommunities(body: BasicRequest): BestCommunitiesResponse? {
         val token = settings.getToken()
         val response = service.getBestCommunities(token, body).execute()
         return response.body()
     }
-    
+
     override fun getMenstruation(body: GetMenstruationRequest): GetMenstruationResponse? {
         val token = settings.getToken()
         val response = service.getMenstruation(token, body).execute()
+        return response.body()
+    }
+
+    override fun getAllNotice(body: BasicRequest): GetAllNoticeResponse? {
+        val token = settings.getToken()
+        val response = service.getAllNotice(token, body).execute()
         return response.body()
     }
 }

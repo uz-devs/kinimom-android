@@ -12,4 +12,6 @@ interface HomeView {
 
     fun setCommunities(communities: ArrayList<Community>)
     fun setMenstruation(menstruation: String)
+
+    fun setNoticesBadge(noticesCount: Int)
 }

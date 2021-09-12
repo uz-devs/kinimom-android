@@ -22,6 +22,8 @@ import org.codventure.kinimom.ui.authorization.login.LoginFragment
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import org.codventure.kinimom.ui.main.MainFragment
 import org.codventure.kinimom.ui.main.tabs.community.detail.CommunityDetailFragment
+import org.codventure.kinimom.ui.main.tabs.settings.PreferencesFragment
+import org.codventure.kinimom.ui.main.tabs.settings.SettingsFragment
 import org.codventure.kinimom.ui.splash.SplashFragment
 import javax.inject.Inject
 
@@ -30,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         (application as AndroidApplication).appComponent
     }
 
+    // region inject
     @Inject
     lateinit var settings: Settings
 
@@ -38,6 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var getCommunities: GetCommunities
+    // endregion
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -117,6 +121,14 @@ class MainActivity : AppCompatActivity() {
             setReorderingAllowed(true)
             addToBackStack("CommunityDetailFragment")
             add(R.id.fragment_container_view, CommunityDetailFragment(community))
+        }
+    }
+
+    fun openPreferences() {
+        supportFragmentManager.commit {
+            setReorderingAllowed(true)
+            addToBackStack("SettingsFragment")
+            add(R.id.fragment_container_view, PreferencesFragment())
         }
     }
 

@@ -38,13 +38,13 @@ internal interface KinimomApi {
     @POST("api/testLastOne")
     fun getTestLastOne(
         @Header("Authorization") Authorization: String,
-        @Body body: TestLastOneRequest
+        @Body body: BasicRequest
     ): Call<TestLastOneResponse>
 
     @POST("api/bestCommunities")
     fun getBestCommunities(
         @Header("Authorization") Authorization: String,
-        @Body body: BestCommunitiesRequest
+        @Body body: BasicRequest
     ): Call<BestCommunitiesResponse>
 
     @POST("api/getMenstruation")
@@ -52,4 +52,10 @@ internal interface KinimomApi {
         @Header("Authorization") Authorization: String,
         @Body body: GetMenstruationRequest
     ): Call<GetMenstruationResponse>
+
+    @POST("api/getAllNotice")
+    fun getAllNotice(
+        @Header("Authorization") Authorization: String,
+        @Body body: BasicRequest
+    ): Call<GetAllNoticeResponse>
 }

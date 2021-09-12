@@ -37,6 +37,7 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
         presenter.fetchMenstruation()
         presenter.fetchLastScores()
         presenter.fetchBestCommunities()
+        presenter.fetchAllNotices()
     }
 
     override fun setHusbandWifeScores(husbandScore: Int, wifeScore: Int) {
@@ -120,5 +121,10 @@ class HomeFragment : Fragment(R.layout.fragment_main_home), HomeView {
 
     override fun setMenstruation(menstruation: String) {
         tvPeriod.text = menstruation
+    }
+
+    override fun setNoticesBadge(noticesCount: Int) {
+        tvNoticesBadge.text = noticesCount.toString()
+        tvNoticesBadge.visibility = if (noticesCount > 0) View.VISIBLE else View.INVISIBLE
     }
 }

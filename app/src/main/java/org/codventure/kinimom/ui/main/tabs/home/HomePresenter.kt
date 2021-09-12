@@ -1,5 +1,6 @@
 package org.codventure.kinimom.ui.main.tabs.home
 
+import org.codventure.kinimom.core.interactors.GetAllNotice
 import org.codventure.kinimom.core.interactors.GetBestCommunities
 import org.codventure.kinimom.core.interactors.GetMenstruation
 import org.codventure.kinimom.core.interactors.GetTestLastOne
@@ -22,6 +23,9 @@ class HomePresenter(val view: HomeView) {
 
     @Inject
     lateinit var getMenstruation: GetMenstruation
+
+    @Inject
+    lateinit var getAllNotice: GetAllNotice
 
     @Inject
     lateinit var settings: Settings
@@ -97,6 +101,18 @@ class HomePresenter(val view: HomeView) {
                 val startStr = SimpleDateFormat("yy.MM.dd", Locale.getDefault()).format(closest.first)
                 val endStr = SimpleDateFormat("yy.MM.dd", Locale.getDefault()).format(closest.second)
                 uiThread { view.setMenstruation("가임가 $startStr~$endStr") }
+            }
+        }
+    }
+
+    fun fetchAllNotices() {
+        doAsync {
+            val notices = getAllNotice(settings.getUserId())
+            notices?.notice_list?.let { noticesList ->
+                if (noticesList.isNotEmpty())
+                    uiThread {
+                        view.setNoticesBadge(noticesList.count())
+                    }
             }
         }
     }

@@ -19,7 +19,7 @@
             android:padding="16dp"
             android:background="?selectableItemBackground"
             android:clickable="true"
-            android:src="@drawable/login_btn_top_back"/>
+            android:src="@drawable/arrow_back"/>
 
         <TextView
             android:layout_width="0dp"
