@@ -12,6 +12,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_login_survey_preparing_4.*
 import org.codventure.kinimom.R
+import org.codventure.kinimom.framework.extension.addZeroIfNotDoubleDigits
 import org.codventure.kinimom.framework.extension.removeChars
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import java.util.*
@@ -26,8 +27,8 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
         tvLastMenstrualPeriod.hint =
-            "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${
-                calendar.get(Calendar.DAY_OF_MONTH)
+            "예시 : ${calendar.get(Calendar.YEAR)}년 ${(calendar.get(Calendar.MONTH)+1).addZeroIfNotDoubleDigits()}월 ${
+                calendar.get(Calendar.DAY_OF_MONTH).addZeroIfNotDoubleDigits()
             }일"
 
         tvLastMenstrualPeriod.setOnClickListener {
@@ -50,11 +51,11 @@ class PreparingPage4Fragment(val surveyFragment: SurveyFragment) :
     }
 
     private fun setSelectedDate(year: Int, monthOfYear: Int, dayOfMonth: Int) {
-        val dateString = "$year-$monthOfYear-$dayOfMonth"
+        val dateString = "$year-${monthOfYear.addZeroIfNotDoubleDigits()}-${dayOfMonth.addZeroIfNotDoubleDigits()}"
         surveyFragment.surveyResults.period_end_date = dateString
         surveyFragment.updateNextButton()
 
-        tvLastMenstrualPeriod.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
+        tvLastMenstrualPeriod.text = "${year}년 ${monthOfYear.addZeroIfNotDoubleDigits()}월 ${dayOfMonth.addZeroIfNotDoubleDigits()}일"
     }
 
     private fun openDatePicker() {

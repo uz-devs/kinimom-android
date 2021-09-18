@@ -25,3 +25,9 @@ fun String?.userAvatar(): Int {
         else -> R.drawable.community_profile_img_10
     }
 }
+
+fun Int.addZeroIfNotDoubleDigits(): String{
+    if (-10 < this && this < 10)
+        return "0$this"
+    return this.toString()
+}

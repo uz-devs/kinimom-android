@@ -19,9 +19,9 @@ class AgreementFragment : Fragment(R.layout.fragment_login_agreements) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        lls = arrayOf(llTermsOfService, llPrivacyPolicy, llPersonalInfoCollection, llConsentToUsePersonalInfo, llConsentToThirdParty)
-        ivs = arrayOf(ivTermsOfService, ivPrivacyPolicy, ivPersonalInfoCollection, ivConsentToUsePersonalInfo, ivConsentToThirdParty)
-        agreed = arrayOf(false, false, false, false, false)
+        lls = arrayOf(llTermsOfService, llPrivacyPolicy, llSensitiveInformation, llPersonalInfoCollection, llConsentToUsePersonalInfo, llConsentToThirdParty)
+        ivs = arrayOf(ivTermsOfService, ivPrivacyPolicy, ivSensitiveInformation, ivPersonalInfoCollection, ivConsentToUsePersonalInfo, ivConsentToThirdParty)
+        agreed = arrayOf(false, false, false,false, false, false)
 
         llAgreeToAll.setOnClickListener { toggleAgreements() }
 

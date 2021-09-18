@@ -94,7 +94,7 @@
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:digits="0123456789"
-                android:hint="28일"
+                android:hint="예시: 28일"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 
@@ -125,7 +125,7 @@
                 android:background="@android:color/transparent"
                 android:gravity="center"
                 android:digits="0123456789"
-                android:hint="6일"
+                android:hint="예시: 6일"
                 android:textColor="@color/black"
                 android:textSize="16sp" />
 

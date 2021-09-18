@@ -19,6 +19,7 @@ class Network
         settings.saveUserId(response.body()?.user?.id ?: -1L)
         settings.saveToken(response.body()?.token ?: "")
 
+        settings.saveUsername(response.body()?.user?.nickname ?: "")
         settings.saveSocialLoginCredentials(
             request.social_login_type,
             request.social_id,

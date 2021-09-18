@@ -10,7 +10,7 @@ class SettingsPresenter(val view: SettingsView) {
     // endregion
 
     fun initProfile() {
-        view.setName(settings.getSocialLoginCredentials().social_name)
+        view.setName(settings.getUsername())
         view.setProfileImage(settings.getSocialLoginCredentials().social_photo)
     }
 }

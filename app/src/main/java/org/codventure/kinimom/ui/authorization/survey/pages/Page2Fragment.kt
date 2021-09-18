@@ -10,6 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.fragment_login_survey_2.*
 import org.codventure.kinimom.R
+import org.codventure.kinimom.framework.extension.addZeroIfNotDoubleDigits
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
 import java.util.*
 
@@ -23,7 +24,7 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
         // set date to today
         val calendar = Calendar.getInstance()
         calendar.timeInMillis = System.currentTimeMillis()
-        tvExpectedDate.hint = "예시 : ${calendar.get(Calendar.YEAR)}년 ${calendar.get(Calendar.MONTH)}월 ${calendar.get(Calendar.DAY_OF_MONTH)}일"
+        tvExpectedDate.hint = "예시 : ${calendar.get(Calendar.YEAR)}년 ${(calendar.get(Calendar.MONTH) + 1).addZeroIfNotDoubleDigits()}월 ${calendar.get(Calendar.DAY_OF_MONTH).addZeroIfNotDoubleDigits()}일"
 
         tvExpectedDate.setOnClickListener {
             openDatePicker()
@@ -31,11 +32,11 @@ class Page2Fragment(val surveyFragment: SurveyFragment) :
     }
 
     private fun setSelectedDate(year: Int, monthOfYear: Int, dayOfMonth: Int) {
-        val dateString = "$year-$monthOfYear-$dayOfMonth"
+        val dateString = "$year-${monthOfYear.addZeroIfNotDoubleDigits()}-${dayOfMonth.addZeroIfNotDoubleDigits()}"
         surveyFragment.surveyResults.expected_date = dateString
         surveyFragment.updateNextButton()
 
-        tvExpectedDate.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
+        tvExpectedDate.text = "${year}년 ${monthOfYear.addZeroIfNotDoubleDigits()}월 ${dayOfMonth.addZeroIfNotDoubleDigits()}일"
     }
 
     private fun openDatePicker() {

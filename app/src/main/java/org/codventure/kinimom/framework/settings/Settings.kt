@@ -11,6 +11,7 @@ class Settings
     // region keys
     private val USER_ID = "user_id"
     private val USER_TOKEN = "token"
+    private val USER_NAME = "username"
 
     private val SOCIAL_TYPE = "SOCIAL_TYPE"
     private val SOCIAL_ID = "SOCIAL_ID"
@@ -38,6 +39,12 @@ class Settings
     fun getToken(): String {
         return "Bearer ${Prefs.get(context, USER_TOKEN, "")}"
     }
+
+    fun saveUsername(username: String){
+        Prefs.save(context, USER_NAME, username)
+    }
+
+    fun getUsername() = Prefs.get(context, USER_NAME, "")
 
     fun saveSocialLoginCredentials(
         social_login_type: String,

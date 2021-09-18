@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_login_survey_3.*
 import org.codventure.kinimom.AndroidApplication
 import org.codventure.kinimom.R
 import org.codventure.kinimom.framework.di.ApplicationComponent
+import org.codventure.kinimom.framework.extension.addZeroIfNotDoubleDigits
 import org.codventure.kinimom.framework.extension.toast
 import org.codventure.kinimom.ui.MainActivity
 import org.codventure.kinimom.ui.authorization.survey.SurveyFragment
@@ -121,11 +122,11 @@ class Page3Fragment(val surveyFragment: SurveyFragment, val isPreparing: Boolean
     }
 
     private fun setSelectedDate(year: Int, monthOfYear: Int, dayOfMonth: Int) {
-        val dateString = "$year-$monthOfYear-$dayOfMonth"
+        val dateString = "$year-${monthOfYear.addZeroIfNotDoubleDigits()}-${dayOfMonth.addZeroIfNotDoubleDigits()}"
         surveyFragment.surveyResults.date_of_birth = dateString
         surveyFragment.updateNextButton()
 
-        tvDateOfBirth.text = "${year}년 ${monthOfYear}월 ${dayOfMonth}일"
+        tvDateOfBirth.text = "${year}년 ${monthOfYear.addZeroIfNotDoubleDigits()}월 ${dayOfMonth.addZeroIfNotDoubleDigits()}일"
         tvDateOfBirth.setTextColor(ContextCompat.getColor(requireContext(), R.color.black))
     }
 
